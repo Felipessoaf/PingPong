@@ -27,6 +27,11 @@ public class Ping : Photon.PunBehaviour
     }
     private void Update()
     {
+        if (photonView.isMine == false && PhotonNetwork.connected == true)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && canPing)
         {
             DeployPing();
@@ -36,7 +41,7 @@ public class Ping : Photon.PunBehaviour
 
     public void DeployPing()
     {
-        this.photonView.RPC("receiveping", PhotonTargets.Others, transform.position);
+        this.photonView.RPC("receiveping", PhotonTargets.Others);
         
         GetPong();
     }
