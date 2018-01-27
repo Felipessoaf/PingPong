@@ -214,7 +214,7 @@ public class Ping : Photon.PunBehaviour,IPunObservable
     {
         while(PortalActive)
         {
-            DeployPing();
+            this.photonView.RPC("receiveping", PhotonTargets.Others);
             yield return new WaitForSeconds(PingRate);
         }
     }
