@@ -8,7 +8,7 @@ public class Launcher : Photon.PunBehaviour
         
         #region Public Variables
         public Text status;
- 
+        public InputField nameR;
         #endregion
  
 
@@ -104,7 +104,7 @@ public class Launcher : Photon.PunBehaviour
 		public override void OnPhotonRandomJoinFailed (object[] codeAndMsg)
 	{
 	    Debug.Log("failed find room");
-		PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = 4 }, null);
+		PhotonNetwork.CreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
 	}
  
 	public override void OnJoinedRoom()

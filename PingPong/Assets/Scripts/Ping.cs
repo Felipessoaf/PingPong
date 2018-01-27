@@ -28,7 +28,7 @@ public class Ping : Photon.PunBehaviour,IPunObservable
     private Vector3 _endPos;
 
     private short MyMsgId = 1000;
-    bool pinging;
+    public bool pinging,newping;
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
         if (stream.isWriting)
         {
@@ -40,7 +40,7 @@ public class Ping : Photon.PunBehaviour,IPunObservable
         else
         {
             // Network player, receive data
-            bool newping = (bool)stream.ReceiveNext();
+            newping = (bool)stream.ReceiveNext();
             if(!pinging && newping){
                 receiveping();
                 pinging = false;
