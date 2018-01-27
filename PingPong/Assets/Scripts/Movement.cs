@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Movement : NetworkBehaviour 
+public class Movement : Photon.MonoBehaviour 
 {
 	[Range(1.0f,50f)]
 	public float playerVelocity;
@@ -22,7 +22,10 @@ public class Movement : NetworkBehaviour
 	
 	void Update()
 	{
-		if (!isLocalPlayer) return;
+		if (photonView.isMine == false && PhotonNetwork.connected == true)
+		{
+			return;
+		}
 		if(Input.anyKey)
 		{
 		playerVelocityVector.x = Input.GetAxis("Horizontal");
@@ -30,7 +33,7 @@ public class Movement : NetworkBehaviour
 		}
 		else
 		{
-			//playerVelocityVector = Vector3.zero;
+			playerVelocityVector = Vector3.zero;
 		}
 	}
 	void FixedUpdate () 
