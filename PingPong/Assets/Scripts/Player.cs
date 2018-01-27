@@ -20,9 +20,12 @@ public class Player : NetworkBehaviour {
 	}
 	public override void OnStartLocalPlayer()
     {
-        GetComponent<MeshRenderer>().material.color = Color.red;
-		Camera.main.GetComponent<CameraFollow>().target = this.gameObject.transform;
+		CameraFollow mainCameraFollow = Camera.main.GetComponent<CameraFollow>();
+		FOV mainCameraFOV = Camera.main.GetComponent<FOV>();
 
+        GetComponent<MeshRenderer>().material.color = Color.red;
+		mainCameraFollow.target = this.gameObject.transform;
+		mainCameraFOV.localPlayerTag = this.gameObject.tag;
     }
 
 }
