@@ -33,3 +33,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 PingPong/.vscode/settings.json
+PingPong/UnityPlayer.dll
+PingPong/1_Data/
+PingPong/1.exe
