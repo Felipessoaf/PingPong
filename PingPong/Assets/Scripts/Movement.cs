@@ -33,7 +33,7 @@ public class Movement : Photon.MonoBehaviour
 		}
 		else
 		{
-			//playerVelocityVector = Vector3.zero;
+			playerVelocityVector = Vector3.zero;
 		}
 	}
 	void FixedUpdate () 

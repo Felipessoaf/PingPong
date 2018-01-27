@@ -32,8 +32,10 @@ public class Ping : Photon.PunBehaviour,IPunObservable
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
         if (stream.isWriting)
         {
-            stream.SendNext(pinging);
-            pinging = false;
+            if(pinging){
+                stream.SendNext(pinging);
+                pinging = false;
+            }
         }
         else
         {
