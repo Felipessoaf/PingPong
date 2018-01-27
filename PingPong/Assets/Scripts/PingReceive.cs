@@ -44,14 +44,14 @@ public class PingReceive : Photon.PunBehaviour
         myLine.AddComponent<LineRenderer>();
         LineRenderer lr = myLine.GetComponent<LineRenderer>();
         lr.material = RayMat;
-        lr.startColor = Color.black;
-        lr.endColor = Color.white;
+        lr.startColor = Color.white;
+        lr.endColor = Color.black;
         lr.startWidth = 0.1f;
         lr.endWidth = 0.1f;
         lr.SetPosition(0, _startPos);
         lr.SetPosition(1, _endPos);
 
-        Debug.DrawLine(transform.position, t);
+        //Debug.DrawLine(transform.position, t);
         Debug.Log("Transform: " + t);
 
         StartCoroutine(DeleteRay());
