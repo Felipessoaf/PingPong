@@ -12,7 +12,7 @@ public class PingReceive : Photon.PunBehaviour
     private Vector3 _endPos;
 
     [PunRPC]
-    void receiveping(Vector3 pos, PhotonMessageInfo info)
+    void receiveping(PhotonMessageInfo info)
     {
         GameObject otherPlayer = null;
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player"))
@@ -23,13 +23,9 @@ public class PingReceive : Photon.PunBehaviour
             }
         }
 
-        if (otherPlayer)
+        if (otherPlayer && !photonView.isMine)
         {
             DrawPing(otherPlayer.transform.position);
-        }
-        else
-        {
-            Debug.Log("deu merda");
         }
     }
 
