@@ -9,6 +9,7 @@ public class Launcher : Photon.PunBehaviour
         #region Public Variables
         public Text status;
         public InputField nameR;
+        public Toggle toggle;
         #endregion
  
 
@@ -82,7 +83,7 @@ public class Launcher : Photon.PunBehaviour
             {
                 // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnPhotonRandomJoinFailed() and we'll create one.
                 //PhotonNetwork.JoinRandomRoom();
-                PhotonNetwork.JoinOrCreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
+                join();
 
             }
             else
@@ -94,6 +95,11 @@ public class Launcher : Photon.PunBehaviour
  
  
     #endregion
+    void join(){
+        PlayerPrefs.SetString("type",toggle.isOn.ToString());
+        if(nameR.text == "") nameR.text = "devRoom";
+        PhotonNetwork.JoinOrCreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
+    }
 	public override void OnConnectedToMaster()
 	{
 		Debug.Log("connected");
@@ -106,7 +112,7 @@ public class Launcher : Photon.PunBehaviour
 		public override void OnPhotonRandomJoinFailed (object[] codeAndMsg)
 	{
 	    Debug.Log("failed find room");
-		PhotonNetwork.JoinOrCreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
+		join();
 	}
  
 	public override void OnJoinedRoom()
