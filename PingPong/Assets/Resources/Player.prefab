@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888cf6ab593bcf940a361b6723614280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RayMat: {fileID: 0}
+  RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
   PingDuration: 0.5
 --- !u!114 &114381291898422156
 MonoBehaviour:
