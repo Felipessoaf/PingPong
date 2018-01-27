@@ -14,10 +14,6 @@ public class Player : NetworkBehaviour {
              GetComponent<MeshRenderer>().enabled = false;
              GetComponent<Collider>().enabled = false;
 		}
-		if(isLocalPlayer)
-		{
-			Camera.main.GetComponent<CameraFollow>().target = this.gameObject.transform;
-		}
 	}	
 	void Update () {
 		if (!isLocalPlayer) return;
@@ -25,6 +21,8 @@ public class Player : NetworkBehaviour {
 	public override void OnStartLocalPlayer()
     {
         GetComponent<MeshRenderer>().material.color = Color.red;
+		Camera.main.GetComponent<CameraFollow>().target = this.gameObject.transform;
+
     }
 
 }
