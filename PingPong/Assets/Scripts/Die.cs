@@ -7,7 +7,6 @@ public class Die : Photon.MonoBehaviour
 {
     public Animator Anim;
 
-
     void Update()
     {
         if (photonView.isMine == false && PhotonNetwork.connected == true)
