@@ -383,6 +383,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4594504935721860, guid: b0e1b84573fa98140ae14adbabeacd67, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774682802362478, guid: b0e1b84573fa98140ae14adbabeacd67, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23107362732867434, guid: b0e1b84573fa98140ae14adbabeacd67,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3ce1229934d3d742a0a5efdddcc1052, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0e1b84573fa98140ae14adbabeacd67, type: 2}
   m_IsPrefabParent: 0
@@ -429,6 +442,21 @@ Prefab:
         type: 2}
       propertyPath: m_PlayerSpawnMethod
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114205220526513688, guid: d1c0936a3b6ddaf4a94a33fd7f2aee12,
+        type: 2}
+      propertyPath: m_NetworkAddress
+      value: localhost
+      objectReference: {fileID: 0}
+    - target: {fileID: 114205220526513688, guid: d1c0936a3b6ddaf4a94a33fd7f2aee12,
+        type: 2}
+      propertyPath: m_ServerBindToIP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114205220526513688, guid: d1c0936a3b6ddaf4a94a33fd7f2aee12,
+        type: 2}
+      propertyPath: m_UseWebSockets
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114345240040151880, guid: d1c0936a3b6ddaf4a94a33fd7f2aee12, type: 2}
