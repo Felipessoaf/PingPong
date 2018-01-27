@@ -20,17 +20,21 @@ public class Movement : NetworkBehaviour
 		
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () 
+	void Update()
 	{
 		if (!isLocalPlayer) return;
-		playerVelocityVector.x = Input.GetAxis("Horizontal");
-		playerVelocityVector.z = Input.GetAxis("Vertical");
-
 		if(Input.anyKey)
 		{
-			playerRb.velocity = playerVelocity * playerVelocityVector; //new Vector3 (0,0,playerVelocity);
-			//Debug.Log("W");
+		playerVelocityVector.x = Input.GetAxis("Horizontal");
+		playerVelocityVector.z = Input.GetAxis("Vertical");
 		}
+		else
+		{
+			playerVelocityVector = Vector3.zero;
+		}
+	}
+	void FixedUpdate () 
+	{		
+			playerRb.velocity = playerVelocity * playerVelocityVector;
 	}
 }
