@@ -38,7 +38,7 @@ public class Player : Photon.MonoBehaviour {
 
     public void Join()
     {
-        if (!isLocalPlayer)
+        if (!photonView.isMine)
         {
             GetComponent<MeshRenderer>().enabled = true;
             GetComponent<Collider>().enabled = true;
