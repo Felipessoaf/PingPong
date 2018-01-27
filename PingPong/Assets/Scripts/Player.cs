@@ -7,7 +7,10 @@ public class Player : NetworkBehaviour {
 
 	int id;
 	void Start () {
-		
+		if (!isLocalPlayer){
+			 GetComponent<MeshRenderer>().enabled = false;
+			 GetComponent<Collider>().enabled = false;
+		}
 	}
 	
 	// Update is called once per frame

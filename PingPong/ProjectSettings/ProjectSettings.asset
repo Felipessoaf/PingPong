@@ -634,9 +634,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: eb1c617e-95dd-40b2-9354-01544ead33c9
-  projectName: PingPong (1)
-  organizationId: felipe-pessoa
+  cloudProjectId: 21aec869-19aa-41fb-b3f1-6f32d3c16319
+  projectName: PingPong
+  organizationId: leonardo-kaplan
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
