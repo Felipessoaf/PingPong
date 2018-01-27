@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 54298598513276106}
   - component: {fileID: 114180442167031716}
   - component: {fileID: 114535581208513744}
+  - component: {fileID: 114941927696057016}
+  - component: {fileID: 95880446615095018}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -39,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1238539156819362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.96, y: 2.36, z: 2.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,6 +115,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95880446615095018
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238539156819362}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aaefb3954fe8a2444938b7c319ebb14b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114180442167031716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,5 +175,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b647ecfb620a66549bfbf4c82e098bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerVelocity: 0
+  playerVelocity: 10
   playerVelocityVector: {x: 0, y: 0, z: 0}
+--- !u!114 &114941927696057016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238539156819362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa42422271095843aa4fa7ea4a4383f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Anim: {fileID: 95880446615095018}
