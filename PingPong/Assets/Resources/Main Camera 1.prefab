@@ -38,13 +38,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328071921179060}
-  m_LocalRotation: {x: 0.3826835, y: -0.00000017621616, z: 0.000000072991135, w: 0.9238795}
-  m_LocalPosition: {x: -8.999996, y: 9.999996, z: -18.999992}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 9.1, z: -19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!20 &20449369732225412
 Camera:
   m_ObjectHideFlags: 1
@@ -61,11 +61,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -4
   far clip plane: 1000
   field of view: 50
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -111,6 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348c74a57e5fee8418079ac6d4b7f715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroVigRange: 0
+  monsterVigRange: 0
+  monsterVigVelocity: 0
   localPlayerTag: 
 --- !u!114 &114990337399470550
 MonoBehaviour:
@@ -125,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 1
-  offset: {x: 0, y: 10, z: -10}
+  offset: {x: 0, y: 3, z: -5}
 --- !u!124 &124731476256982836
 Behaviour:
   m_ObjectHideFlags: 1
