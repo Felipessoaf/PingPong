@@ -30,7 +30,7 @@ public class Movement : NetworkBehaviour
 		}
 		else
 		{
-			playerVelocityVector = Vector3.zero;
+			//playerVelocityVector = Vector3.zero;
 		}
 	}
 	void FixedUpdate () 
