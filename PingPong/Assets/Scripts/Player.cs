@@ -13,8 +13,7 @@ public class Player : Photon.MonoBehaviour {
 			Player.LocalPlayerInstance = this.gameObject;
 			CameraFollow mainCameraFollow = Camera.main.GetComponent<CameraFollow>();
 			FOV mainCameraFOV = Camera.main.GetComponent<FOV>();
-
-			GetComponent<MeshRenderer>().material.color = Color.red;
+            
 			mainCameraFollow.target = this.gameObject.transform;
 			mainCameraFOV.localPlayerTag = this.gameObject.tag;
 		}
