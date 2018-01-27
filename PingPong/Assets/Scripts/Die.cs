@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Die : MonoBehaviour {
-
+public class Die : NetworkBehaviour
+{
     public Animator Anim;
-    
+
+
+    void Update()
+    {
+        if (!isLocalPlayer) return;
+    }
+
     public void Death()
     {
         if(Anim)

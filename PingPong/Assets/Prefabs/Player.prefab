@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114625090117755454}
   - component: {fileID: 95448371493318776}
   - component: {fileID: 114421195729497518}
+  - component: {fileID: 114502420319702240}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -168,6 +169,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVelocity: 1
   playerVelocityVector: {x: 0, y: 0, z: 0}
+--- !u!114 &114502420319702240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216961505612702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cba37e1ed874a41a0c170364bf01ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PongRadius: 0
+  PortalActive: 0
 --- !u!114 &114625090117755454
 MonoBehaviour:
   m_ObjectHideFlags: 1

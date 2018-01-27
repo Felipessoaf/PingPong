@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Ping : MonoBehaviour {
+public class Ping : NetworkBehaviour
+{
 
     [Tooltip("Distancia maxima do raio do pong inimigo")]
     public float PongRadius;
@@ -10,7 +12,9 @@ public class Ping : MonoBehaviour {
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (!isLocalPlayer) return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             DeployPing();
         }
