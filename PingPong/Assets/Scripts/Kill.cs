@@ -17,7 +17,7 @@ public class Kill : MonoBehaviour {
             }
             else
             {
-                Debug.LogWarning("Animator not set - Die.cs");
+                Debug.LogWarning("Animator not set - Kill.cs");
             }
         }
     }
