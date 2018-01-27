@@ -28,4 +28,13 @@ public class Player : NetworkBehaviour {
 		mainCameraFOV.localPlayerTag = this.gameObject.tag;
     }
 
+    public void Join()
+    {
+        if (!isLocalPlayer)
+        {
+            GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<Collider>().enabled = true;
+        }
+    }
+
 }
