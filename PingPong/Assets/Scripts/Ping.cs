@@ -28,8 +28,9 @@ public class Ping : Photon.PunBehaviour,IPunObservable
     private Vector3 _endPos;
 
     private short MyMsgId = 1000;
-    public bool pinging,newping;
+    public bool pinging;
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
+        /*
         if (stream.isWriting)
         {
             if(pinging){
@@ -40,12 +41,15 @@ public class Ping : Photon.PunBehaviour,IPunObservable
         else
         {
             // Network player, receive data
-            newping = (bool)stream.ReceiveNext();
-            if(!pinging && newping){
-                receiveping();
-                pinging = false;
+            if(stream.isReading && stream.Count >0){
+                bool newping = (bool)stream.ReceiveNext();
+                if(!pinging && newping){
+                    //receiveping();
+                    pinging = false;
+                }
             }
         }
+        */
     }
 
 
@@ -57,7 +61,8 @@ public class Ping : Photon.PunBehaviour,IPunObservable
         StartCoroutine(ResetPingCooldown());
         //SetupClient();
     }
-    void receiveping(){
+    [PunRPC]
+    void receiveping(PhotonMessageInfo info){
             GameObject otherPlayer = null;
             foreach(GameObject go in GameObject.FindGameObjectsWithTag("Player"))
             {
@@ -76,6 +81,7 @@ public class Ping : Photon.PunBehaviour,IPunObservable
         {
             //DeployPing();
             //GetPong();
+            this.photonView.RPC("receiveping", PhotonTargets.Others);
             pinging = true;
             StartCoroutine(ResetPingCooldown());
             
