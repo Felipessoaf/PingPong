@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Ping : NetworkBehaviour
+public class Ping : MonoBehaviour
 {
 
     [Tooltip("Distancia maxima do raio do pong inimigo")]
@@ -29,7 +29,7 @@ public class Ping : NetworkBehaviour
 
     private void Update()
     {
-        if (!isLocalPlayer) return;
+        //if (!isLocalPlayer) return;
 
         if (Input.GetKeyDown(KeyCode.Space) && canPing)
         {

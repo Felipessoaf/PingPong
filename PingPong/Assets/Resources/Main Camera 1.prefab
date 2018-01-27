@@ -125,7 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 1
-  localPlayerTag: 
   offset: {x: 0, y: 10, z: -10}
 --- !u!124 &124731476256982836
 Behaviour:
