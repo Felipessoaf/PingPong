@@ -34,6 +34,7 @@ public class Player : Photon.MonoBehaviour {
 			return;
 		}
 	}
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 
     public void Join()
     {
