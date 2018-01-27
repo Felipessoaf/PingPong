@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Die : NetworkBehaviour
+public class Die : Photon.MonoBehaviour
 {
     public Animator Anim;
 
 
     void Update()
     {
-        if (!isLocalPlayer) return;
+        if (photonView.isMine == false && PhotonNetwork.connected == true)
+		{
+			return;
+		}
     }
 
     public void Death()

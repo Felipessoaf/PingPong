@@ -10,7 +10,7 @@ using UnityEngine.Networking;
 //    public NetworkInstanceId netId;
 //}
 
-public class Ping : NetworkBehaviour
+public class Ping : Photon.PunBehaviour,IPunObservable
 {
 
     [Tooltip("Distancia maxima do raio do pong inimigo")]
@@ -28,90 +28,59 @@ public class Ping : NetworkBehaviour
     private Vector3 _endPos;
 
     private short MyMsgId = 1000;
-    
-    //NetworkClient myClient;
+    bool pinging;
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
+        if (stream.isWriting)
+        {
+            stream.SendNext(pinging);
+            pinging = false;
+        }
+        else
+        {
+            // Network player, receive data
+            bool newping = (bool)stream.ReceiveNext();
+            if(!pinging && newping){
+                receiveping();
+                pinging = false;
+            }
+        }
+    }
 
-    //public class MyMsgType
-    //{
-    //    public static short Score = MsgType.Highest + 1;
-    //};
-
-    //public class ScoreMessage : MessageBase
-    //{
-    //    public NetworkInstanceId netId;
-    //}
-
-    //[Command]
-    //public void CmdSendScore(NetworkInstanceId id)
-    //{
-    //    ScoreMessage msg = new ScoreMessage();
-    //    msg.netId = id;
-
-    //    NetworkServer.SendToAll(MyMsgType.Score, msg);
-    //}
-
-    //// Create a client and connect to the server port
-    //public void SetupClient()
-    //{
-    //    myClient = new NetworkClient();
-    //    myClient.RegisterHandler(MsgType.Connect, OnConnected);
-    //    myClient.RegisterHandler(MyMsgType.Score, OnScore);
-    //    myClient.Connect("127.0.0.1", 7777);
-    //}
-
-    //public void OnScore(NetworkMessage netMsg)
-    //{
-    //    ScoreMessage msg = netMsg.ReadMessage<ScoreMessage>();
-    //    Debug.Log("OnScoreMessage " + msg.netId);
-    //    var player = ClientScene.FindLocalObject(msg.netId);
-    //    player.GetComponent<Ping>().GetPing(player.transform);
-    //}
-
-    //public void OnConnected(NetworkMessage netMsg)
-    //{
-    //    Debug.Log("Connected to server");
-    //}
-
-    //public override void OnStartClient()
-    //{
-    //    // this should be somewhere else..
-    //    NetworkManager.singleton.client.RegisterHandler(MyMsgId, OnMyMsg);
-    //}
-
-    //[Command]
-    //void CmdSendToMe()
-    //{
-    //    var msg = new MyMessage();
-    //    msg.netId = netId;
-
-    //    //base.connectionToClient.Send(MyMsgId, msg);
-    //    NetworkServer.SendToAll(MyMsgId, msg);
-    //}
-
-    //static void OnMyMsg(NetworkMessage netMsg)
-    //{
-    //    var msg = netMsg.ReadMessage<MyMessage>();
-    //    var player = ClientScene.FindLocalObject(msg.netId);
-    //    player.GetComponent<Ping>().GetPing(player.transform);
-    //}
 
     private void Start()
     {
-        if (!isLocalPlayer) return;
+        //if (!isLocalPlayer) return;
 
-        DeployPing();
+        //DeployPing();
         StartCoroutine(ResetPingCooldown());
         //SetupClient();
     }
-
+    void receiveping(){
+            GameObject otherPlayer = null;
+            foreach(GameObject go in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if(go != gameObject)
+                {
+                    otherPlayer = go;
+                }
+            }
+            DrawPing(otherPlayer.transform);
+    }
     private void Update()
     {
-        if (!isLocalPlayer) return;
+        //if (!isLocalPlayer) return;
 
         if (Input.GetKeyDown(KeyCode.Space) && canPing)
         {
-            DeployPing();
+            //DeployPing();
+            //GetPong();
+            pinging = true;
             StartCoroutine(ResetPingCooldown());
+            
+        }
+        //receive pinging
+        if(pinging && !photonView.isMine){ //e o id do envio ! do meu
+            //receiveping();
         }
     }
 
@@ -134,7 +103,7 @@ public class Ping : NetworkBehaviour
         if (otherPlayer)
         {
             //send msg 
-            otherPlayer.GetComponent<Ping>().GetPing(transform);
+            otherPlayer.GetComponent<Ping>().DrawPing(transform);
             //CmdSendToMe();
             //var msg = new MyMessage();
             //msg.netId = netId;
@@ -147,7 +116,7 @@ public class Ping : NetworkBehaviour
         GetPong();
     }
 
-    public void GetPing(Transform t)
+    public void DrawPing(Transform t)
     {
         if (t.gameObject == gameObject)
         {
@@ -169,7 +138,7 @@ public class Ping : NetworkBehaviour
         LineRenderer lr = myLine.GetComponent<LineRenderer>();
         lr.material = RayMat;
         lr.startColor = Color.black;
-        lr.endColor = Color.black;
+        lr.endColor = Color.white;
         lr.startWidth = 0.1f;
         lr.endWidth = 0.1f;
         lr.SetPosition(0, _startPos);
