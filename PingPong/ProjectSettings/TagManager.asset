@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Peng
+    uniqueID: 307124001
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
