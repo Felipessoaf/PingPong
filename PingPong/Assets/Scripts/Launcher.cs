@@ -81,7 +81,9 @@ public class Launcher : Photon.PunBehaviour
             if (PhotonNetwork.connected)
             {
                 // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnPhotonRandomJoinFailed() and we'll create one.
-                PhotonNetwork.JoinRandomRoom();
+                //PhotonNetwork.JoinRandomRoom();
+                PhotonNetwork.JoinOrCreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
+
             }
             else
             {
@@ -98,13 +100,13 @@ public class Launcher : Photon.PunBehaviour
         status.text = "Play";
         
 		if(connecting){
-			PhotonNetwork.JoinRandomRoom();
+			//PhotonNetwork.JoinRandomRoom();
 		}
 	}
 		public override void OnPhotonRandomJoinFailed (object[] codeAndMsg)
 	{
 	    Debug.Log("failed find room");
-		PhotonNetwork.CreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
+		PhotonNetwork.JoinOrCreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
 	}
  
 	public override void OnJoinedRoom()
