@@ -10,7 +10,7 @@ using UnityEngine.Networking;
 //    public NetworkInstanceId netId;
 //}
 
-public class Ping : Photon.PunBehaviour,IPunObservable
+public class Ping : Photon.PunBehaviour
 {
 
     [Tooltip("Distancia maxima do raio do pong inimigo")]
@@ -20,61 +20,23 @@ public class Ping : Photon.PunBehaviour,IPunObservable
     public float PingRate = 1f;
 
     private bool canPing = false;
-
-    private short MyMsgId = 1000;
-    public bool pinging;
-    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
-        /*
-        if (stream.isWriting)
-        {
-            if(pinging){
-                stream.SendNext(pinging);
-                pinging = false;
-            }
-        }
-        else
-        {
-            // Network player, receive data
-            if(stream.isReading && stream.Count >0){
-                bool newping = (bool)stream.ReceiveNext();
-                if(!pinging && newping){
-                    //receiveping();
-                    pinging = false;
-                }
-            }
-        }
-        */
-    }
-
-
+    
     private void Start()
     {
-        //if (!isLocalPlayer) return;
-
-        //DeployPing();
         StartCoroutine(ResetPingCooldown());
-        //SetupClient();
     }
     private void Update()
     {
-        //if (!isLocalPlayer) return;
-
         if (Input.GetKeyDown(KeyCode.Space) && canPing)
         {
             DeployPing();
-            //pinging = true;
             StartCoroutine(ResetPingCooldown());
-            
         }
-        //receive pinging
-        //if(pinging && !photonView.isMine){ //e o id do envio ! do meu
-        //    //receiveping();
-        //}
     }
 
     public void DeployPing()
     {
-        this.photonView.RPC("receiveping", PhotonTargets.Others);
+        this.photonView.RPC("receiveping", PhotonTargets.Others, transform.position);
         
         GetPong();
     }
