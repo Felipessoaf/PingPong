@@ -16,20 +16,15 @@ public class Ping : Photon.PunBehaviour,IPunObservable
     [Tooltip("Distancia maxima do raio do pong inimigo")]
     public float PongRadius;
     public bool PortalActive;
-    public Material RayMat;
-    public float PingDuration = 0.5f;
     public float PingCooldown = 1.5f;
     public float PingRate = 1f;
 
     private bool canPing = false;
 
-    private GameObject myLine;
-    private Vector3 _startPos;
-    private Vector3 _endPos;
-
     private short MyMsgId = 1000;
-    public bool pinging,newping;
+    public bool pinging;
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
+        /*
         if (stream.isWriting)
         {
             if(pinging){
@@ -40,12 +35,15 @@ public class Ping : Photon.PunBehaviour,IPunObservable
         else
         {
             // Network player, receive data
-            newping = (bool)stream.ReceiveNext();
-            if(!pinging && newping){
-                receiveping();
-                pinging = false;
+            if(stream.isReading && stream.Count >0){
+                bool newping = (bool)stream.ReceiveNext();
+                if(!pinging && newping){
+                    //receiveping();
+                    pinging = false;
+                }
             }
         }
+        */
     }
 
 
@@ -57,99 +55,28 @@ public class Ping : Photon.PunBehaviour,IPunObservable
         StartCoroutine(ResetPingCooldown());
         //SetupClient();
     }
-    void receiveping(){
-            GameObject otherPlayer = null;
-            foreach(GameObject go in GameObject.FindGameObjectsWithTag("Player"))
-            {
-                if(go != gameObject)
-                {
-                    otherPlayer = go;
-                }
-            }
-            DrawPing(otherPlayer.transform);
-    }
     private void Update()
     {
         //if (!isLocalPlayer) return;
 
         if (Input.GetKeyDown(KeyCode.Space) && canPing)
         {
-            //DeployPing();
-            //GetPong();
-            pinging = true;
+            DeployPing();
+            //pinging = true;
             StartCoroutine(ResetPingCooldown());
             
         }
         //receive pinging
-        if(pinging && !photonView.isMine){ //e o id do envio ! do meu
-            //receiveping();
-        }
+        //if(pinging && !photonView.isMine){ //e o id do envio ! do meu
+        //    //receiveping();
+        //}
     }
 
     public void DeployPing()
     {
-        GameObject otherPlayer = null;
-        foreach(GameObject go in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            if(go != gameObject)
-            {
-                otherPlayer = go;
-            }
-        }
-
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Monster"))
-        {
-            //send msg
-        }
-
-        if (otherPlayer)
-        {
-            //send msg 
-            otherPlayer.GetComponent<Ping>().DrawPing(transform);
-            //CmdSendToMe();
-            //var msg = new MyMessage();
-            //msg.netId = netId;
-
-            //base.connectionToClient.Send(MyMsgId, msg);
-            //NetworkServer.SendToAll(MyMsgId, msg);
-            //CmdSendScore(netId);
-        }
-
+        this.photonView.RPC("receiveping", PhotonTargets.Others);
+        
         GetPong();
-    }
-
-    public void DrawPing(Transform t)
-    {
-        if (t.gameObject == gameObject)
-        {
-            Debug.Log("Mesmo player");
-            //return;
-        }
-
-        _startPos = transform.position;
-        _endPos = t.position;
-
-        if (myLine)
-        {
-            Destroy(myLine);
-        }
-
-        myLine = new GameObject();
-        myLine.transform.position = _startPos;
-        myLine.AddComponent<LineRenderer>();
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        lr.material = RayMat;
-        lr.startColor = Color.black;
-        lr.endColor = Color.white;
-        lr.startWidth = 0.1f;
-        lr.endWidth = 0.1f;
-        lr.SetPosition(0, _startPos);
-        lr.SetPosition(1, _endPos);
-
-        Debug.DrawLine(transform.position, t.position);
-        Debug.Log("Transform: " + t.position);
-
-        StartCoroutine(DeleteRay());
     }
 
     void GetPong()
@@ -185,15 +112,6 @@ public class Ping : Photon.PunBehaviour,IPunObservable
                     break;
                 }
             }
-        }
-    }
-
-    IEnumerator DeleteRay()
-    {
-        yield return new WaitForSeconds(PingDuration);
-        if (myLine)
-        {
-            Destroy(myLine);
         }
     }
 
