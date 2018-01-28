@@ -20,13 +20,13 @@ using cakeslice;
 	void FixedUpdate () 
 	{
 		RaycastHit hitInfo;
-		bool hit = Physics.Raycast(transform.position,target.position - transform.position,out hitInfo,Mathf.Infinity);
+		bool hit = Physics.Raycast(transform.position,target.position - transform.position,out hitInfo,Mathf.Infinity,LayerMask.NameToLayer("Grama"));
 		Debug.DrawRay(transform.position,target.position - transform.position,Color.green,0.5f);
 		if(hit)
 		{
 			//Debug.Log(hitInfo.collider.gameObject.name);
 			//if(hitInfo.collider.transform.GetChild(1).GetComponent<MeshRenderer>())
-			if(hitInfo.collider.GetComponent<Collider>() && hitInfo.collider.tag != "Player")
+			if(hitInfo.collider.GetComponent<Collider>() && hitInfo.collider.tag != "Player" && hitInfo.collider.tag != "Grama")
 			{
 				Debug.Log(hitInfo.collider.name);
 				GetComponent<OutlineEffect>().lineThickness = 1.25f;

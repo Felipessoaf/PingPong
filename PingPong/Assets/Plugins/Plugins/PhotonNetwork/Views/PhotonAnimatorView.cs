@@ -21,10 +21,10 @@ using UnityEngine;
 /// Triggers are raised true during one frame only.
 /// </remarks>
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(PhotonView))]
 [AddComponentMenu("Photon Networking/Photon Animator View")]
 public class PhotonAnimatorView : MonoBehaviour, IPunObservable
 {
+    public PhotonView m_PhotonView;
     #region Enums
 
     public enum ParameterType
@@ -96,7 +96,6 @@ public class PhotonAnimatorView : MonoBehaviour, IPunObservable
     private Vector3 m_ReceiverPosition;
     private float m_LastDeserializeTime;
     private bool m_WasSynchronizeTypeChanged = true;
-    private PhotonView m_PhotonView;
 
     /// <summary>
     /// Cached raised triggers that are set to be synchronized in discrete mode. since a Trigger only stay up for less than a frame,
@@ -110,7 +109,10 @@ public class PhotonAnimatorView : MonoBehaviour, IPunObservable
 
     private void Awake()
     {
-        this.m_PhotonView = GetComponent<PhotonView>();
+        if (this.m_PhotonView == null)
+        {
+            this.m_PhotonView = GetComponent<PhotonView>();
+        }
         this.m_StreamQueue = new PhotonStreamQueue(120);
 
         this.m_Animator = GetComponent<Animator>();

@@ -28,6 +28,7 @@ public class Game : Photon.MonoBehaviour {
 			if(ch==2) PhotonNetwork.Instantiate(this.man.name, man.transform.position,man.transform.rotation, 0);
 		}
 
+        portals = new List<GameObject>();
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Portal"))
         {
             portals.Add(o);
@@ -40,6 +41,11 @@ public class Game : Photon.MonoBehaviour {
 
     public void SelectPortal()
     {
+        if(portals.Count < 1)
+        {
+            return;
+        }
+
         int rand = Random.Range(0, portals.Count - 1);
         
         photonView.RPC("ActivatePortal", PhotonTargets.All, rand);
