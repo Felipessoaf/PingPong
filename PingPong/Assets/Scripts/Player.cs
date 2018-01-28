@@ -19,7 +19,7 @@ public class Player : Photon.MonoBehaviour {
 			mainCameraFollow.target = this.gameObject.transform;
 			mainCameraFOV.localPlayerTag = this.gameObject.tag;
 		}
-        else
+        else if(PhotonNetwork.connected == true)
         {
             Visual.SetActive(false);
             GetComponent<Collider>().enabled = false;
