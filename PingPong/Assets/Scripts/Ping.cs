@@ -37,6 +37,20 @@ public class Ping : Photon.PunBehaviour
         StartCoroutine(ResetPingCooldown());
         
     }
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(canPing);
+        }
+        else
+        {
+            // Network player, receive data
+            this.canPing = (bool)stream.ReceiveNext();
+            //Debug.Log(canPing);
+        }
+    }
     private void Update()
     {
         if (photonView.isMine == false && PhotonNetwork.connected == true)
@@ -63,10 +77,10 @@ public class Ping : Photon.PunBehaviour
         {
             if(c.gameObject.CompareTag("Player") && !c.GetComponent<Ping>().canPing)
             {
-                
-                    PhotonView v = PhotonView.Get(other);
-                    v.RPC("Join", PhotonTargets.All,transform.position);
-                    photonView.RPC("Join", PhotonTargets.All,transform.position);
+                Game.instance.SelectPortal();
+                PhotonView v = PhotonView.Get(other);
+                v.RPC("Join", PhotonTargets.All);
+                photonView.RPC("Join", PhotonTargets.All);
                 
             }
         }
@@ -134,7 +148,7 @@ public class Ping : Photon.PunBehaviour
         {
             foreach (Collider c in colliders)
             {
-                if (c.gameObject.CompareTag("Portal"))
+                if (c.gameObject.CompareTag("Portal") && c.gameObject.GetComponent<Portal>().active)
                 {
                     Debug.DrawLine(transform.position, c.gameObject.transform.position);
                     break;
@@ -150,7 +164,7 @@ public class Ping : Photon.PunBehaviour
         canPing = true;
     }
 
-    IEnumerator PingSpawn()
+    public IEnumerator PingSpawn()
     {
         while(PortalActive)
         {

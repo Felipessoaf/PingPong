@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Monster
   - Fire
+  - Portal
   layers:
   - Default
   - TransparentFX

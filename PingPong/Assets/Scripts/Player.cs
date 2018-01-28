@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Photon.MonoBehaviour {
+public class Player : Photon.PunBehaviour {
 
 	public Camera mainCamera;
 	public static GameObject LocalPlayerInstance;
@@ -22,11 +22,13 @@ public class Player : Photon.MonoBehaviour {
         else if(PhotonNetwork.connected == true)
         {
             Visual.SetActive(false);
-            GetComponent<Collider>().enabled = false;
+            //GetComponent<Collider>().enabled = false;
             return;
         }
 		DontDestroyOnLoad(this.gameObject);
-	}
+        Physics.IgnoreLayerCollision(8,8);
+
+    }
 
 	void Start () 
 	{
@@ -41,15 +43,16 @@ public class Player : Photon.MonoBehaviour {
 		}
 	}
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
+    // public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 	[PunRPC]
     void Join(PhotonMessageInfo info)
     {
-        Debug.Log("aaa");
 		if (!photonView.isMine)
         {
-            Visual.SetActive(false);
-            GetComponent<Collider>().enabled = true;
+            Visual.SetActive(true);
+            GetComponent<Ping>().PortalActive = true;
+            StartCoroutine(GetComponent<Ping>().PingSpawn());
+            //GetComponent<Collider>().enabled = true;
         }
     }
 
