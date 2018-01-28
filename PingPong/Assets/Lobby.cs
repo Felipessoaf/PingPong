@@ -31,6 +31,17 @@ public class Lobby : Photon.PunBehaviour {
 	void Update()
 	{
 		num.text = PhotonNetwork.room.PlayerCount.ToString();
+		if(PhotonNetwork.room.PlayerCount>2){
+			PlayerPrefs.SetString("type",true.ToString());
+		}
+		else{
+			PlayerPrefs.SetString("type",false.ToString());
+		}
+		if(PhotonNetwork.room.PlayerCount==4){
+			//se todo mundo estiver ready
+			PhotonNetwork.LoadLevel("main");
+
+		}
 	}
 	public void Ready(){
 
