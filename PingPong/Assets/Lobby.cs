@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Lobby : Photon.PunBehaviour {
-	public int id;
+	//public int id;
 	public Text num,title;
 	public Toggle toggle;
+	/*
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
@@ -20,9 +21,10 @@ public class Lobby : Photon.PunBehaviour {
             toggle.isOn = (bool)stream.ReceiveNext();
             //Debug.Log(canPing);
         }
-    }
+    }*/
 	void Start () {
-		if(id!=PhotonNetwork.player.ID) toggle.interactable = false;
+
+		//if(id!=PhotonNetwork.player.ID) toggle.interactable = false;
 		title.text = PhotonNetwork.room.Name;
 	}
 	
@@ -38,5 +40,6 @@ public class Lobby : Photon.PunBehaviour {
 
 		}
 	}
+	
 	
 }
