@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4896158309741290}
   - component: {fileID: 114403587564206220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,8 @@ GameObject:
   - component: {fileID: 4387849541315446}
   - component: {fileID: 114571609168321934}
   - component: {fileID: 137089075372288330}
-  m_Layer: 0
+  - component: {fileID: 114918864826937078}
+  m_Layer: 8
   m_Name: "p\xE9 de tras1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4156729478079124}
   - component: {fileID: 114031802449597578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pescoco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4779482960639256}
   - component: {fileID: 114676721360778450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: braco1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4337323280045014}
   - component: {fileID: 114999491178888762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4765109812623422}
   - component: {fileID: 108057093911797680}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4395981360430074}
   - component: {fileID: 114172943042811002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: torax
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +146,7 @@ GameObject:
   - component: {fileID: 114892272047488784}
   - component: {fileID: 114560100448211978}
   - component: {fileID: 114357232935377646}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -161,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4530499798144346}
   - component: {fileID: 114601207594438550}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: braco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +180,7 @@ GameObject:
   - component: {fileID: 33193038220228124}
   - component: {fileID: 64334225256605902}
   - component: {fileID: 23697083416422996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4615600587842166}
   - component: {fileID: 114822515121723126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: coxa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +213,8 @@ GameObject:
   - component: {fileID: 4397825914943806}
   - component: {fileID: 114456947309975112}
   - component: {fileID: 137324105725996150}
-  m_Layer: 0
+  - component: {fileID: 114392102963762846}
+  m_Layer: 8
   m_Name: mao da frente1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +229,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4181600436392002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4415509919069122}
   - component: {fileID: 114315677346625272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cintura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4774919754095960}
   - component: {fileID: 114306260768471888}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: coxa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4540226462156932}
   - component: {fileID: 114084075754062284}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: canela
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +292,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4602529912841460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4591535598974486}
   - component: {fileID: 114088524989707020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +325,8 @@ GameObject:
   - component: {fileID: 4058985826338368}
   - component: {fileID: 114027328527137744}
   - component: {fileID: 137008896165986330}
-  m_Layer: 0
+  - component: {fileID: 114280673079924400}
+  m_Layer: 8
   m_Name: mao de tras1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +343,8 @@ GameObject:
   - component: {fileID: 4203789381384990}
   - component: {fileID: 114967789594112300}
   - component: {fileID: 137364924202681398}
-  m_Layer: 0
+  - component: {fileID: 114228038933467734}
+  m_Layer: 8
   m_Name: "p\xE9 da frente1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +362,8 @@ GameObject:
   - component: {fileID: 114921812947216644}
   - component: {fileID: 33945775631822444}
   - component: {fileID: 23653845972507140}
-  m_Layer: 0
+  - component: {fileID: 114706302575344358}
+  m_Layer: 8
   m_Name: "pesco\xE7o corpo1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4416940577154738}
   - component: {fileID: 114139801506958436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cabeca
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4244443124008538}
   - component: {fileID: 114381291898422156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: canela
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +412,8 @@ GameObject:
   - component: {fileID: 4226589970501786}
   - component: {fileID: 114145247191569650}
   - component: {fileID: 137043012574577456}
-  m_Layer: 0
+  - component: {fileID: 114485694507036856}
+  m_Layer: 8
   m_Name: cabeca1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4174502483819782}
   - component: {fileID: 114954379436180808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: braco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4748353681750824}
   - component: {fileID: 114572742000134092}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: braco1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4081297707949142}
   - component: {fileID: 114700770717969372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +686,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216961505612702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.47, y: 0, z: -8.284}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4181600436392002}
@@ -905,7 +911,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 1
 --- !u!23 &23697083416422996
 MeshRenderer:
@@ -1090,7 +1096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.039999798
+  m_Length: 0.03999981
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4416940577154738}
   m_AttachedIK: {fileID: 0}
@@ -1174,10 +1180,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.23088887
+  m_Length: 0.23088892
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4156729478079124}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114228038933467734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576899547511916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
+--- !u!114 &114280673079924400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574410525115956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114306260768471888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1235,10 +1271,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.21000001
+  m_Length: 0.21
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4337323280045014}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114392102963762846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301024849348808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114403587564206220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1290,6 +1341,21 @@ MonoBehaviour:
   - {fileID: 4779482960639256}
   - {fileID: 4530499798144346}
   - {fileID: 4081297707949142}
+--- !u!114 &114485694507036856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1836295019830102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114502420319702240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1301,10 +1367,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cba37e1ed874a41a0c170364bf01ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PongRadius: 0
+  PongRadius: 3
+  UnionRadius: 0
   PortalActive: 0
   PingCooldown: 0.1
   PingRate: 1
+  RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
+  PingDuration: 0.5
+  PingWaitTime: 2
+  canPing: 0
 --- !u!114 &114560100448211978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1356,7 +1427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.1800001
+  m_Length: 0.18
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4174502483819782}
   m_AttachedIK: {fileID: 0}
@@ -1372,7 +1443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.120000355
+  m_Length: 0.12000039
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4081297707949142}
   m_AttachedIK: {fileID: 0}
@@ -1433,6 +1504,21 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114706302575344358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1689341893156948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114822515121723126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1445,7 +1531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.21910638
+  m_Length: 0.21910639
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4540226462156932}
   m_AttachedIK: {fileID: 0}
@@ -1514,6 +1600,21 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &114918864826937078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041369148282964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114921812947216644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1548,7 +1649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.120000154
+  m_Length: 0.119999945
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4896158309741290}
   m_AttachedIK: {fileID: 0}
@@ -1652,7 +1753,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: -1
   serializedVersion: 2
   m_Quality: 0
@@ -1701,7 +1802,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 2
   serializedVersion: 2
   m_Quality: 0
@@ -1748,7 +1849,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -1797,7 +1898,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 2
   serializedVersion: 2
   m_Quality: 0
@@ -1846,7 +1947,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
