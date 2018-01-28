@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4063842478833796}
+  - component: {fileID: 65142915089810696}
   m_Layer: 0
   m_Name: NEO Conjunto de Grama (1)
   m_TagString: Untagged
@@ -37,7 +38,6 @@ GameObject:
   - component: {fileID: 33706682466555024}
   - component: {fileID: 64491821669755480}
   - component: {fileID: 23000137404449606}
-  - component: {fileID: 65277854489132456}
   m_Layer: 0
   m_Name: grama2
   m_TagString: Untagged
@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 33694360428334286}
   - component: {fileID: 64513541613257220}
   - component: {fileID: 23338897726770950}
-  - component: {fileID: 65498143146009100}
   m_Layer: 0
   m_Name: grama1
   m_TagString: Untagged
@@ -135,7 +134,6 @@ GameObject:
   - component: {fileID: 33275929503150690}
   - component: {fileID: 64634207796154884}
   - component: {fileID: 23058309223142694}
-  - component: {fileID: 65750700874941610}
   m_Layer: 0
   m_Name: grama4
   m_TagString: Untagged
@@ -154,7 +152,6 @@ GameObject:
   - component: {fileID: 33897207104631262}
   - component: {fileID: 64633336509673806}
   - component: {fileID: 23617838498727958}
-  - component: {fileID: 65907322387664424}
   m_Layer: 0
   m_Name: grama3
   m_TagString: Untagged
@@ -188,7 +185,6 @@ GameObject:
   - component: {fileID: 33635892186465248}
   - component: {fileID: 64100858867805654}
   - component: {fileID: 23257643016406058}
-  - component: {fileID: 65818731072291802}
   m_Layer: 0
   m_Name: gram5
   m_TagString: Untagged
@@ -203,7 +199,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075567993541720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.776757, y: 11.060807, z: -16.973454}
+  m_LocalPosition: {x: 5.54, y: 0, z: -1.91}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4478001995670016}
@@ -624,63 +620,15 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65277854489132456
+--- !u!65 &65142915089810696
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1118203694005242}
+  m_GameObject: {fileID: 1075567993541720}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65498143146009100
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1304240422732694}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65750700874941610
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1473968519931778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65818731072291802
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894140613958406}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65907322387664424
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1616702727078572}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.8718109, y: 0.71721935, z: 1}
+  m_Center: {x: -0.22013092, y: 0.3219428, z: 0}
