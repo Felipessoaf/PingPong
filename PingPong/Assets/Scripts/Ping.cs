@@ -77,9 +77,10 @@ public class Ping : Photon.PunBehaviour
         {
             if(c.gameObject.CompareTag("Player") && !c.GetComponent<Ping>().canPing)
             {
-                    PhotonView v = PhotonView.Get(other);
-                    v.RPC("Join", PhotonTargets.All);
-                    photonView.RPC("Join", PhotonTargets.All);
+                Game.instance.SelectPortal();
+                PhotonView v = PhotonView.Get(other);
+                v.RPC("Join", PhotonTargets.All);
+                photonView.RPC("Join", PhotonTargets.All);
                 
             }
         }
@@ -147,7 +148,7 @@ public class Ping : Photon.PunBehaviour
         {
             foreach (Collider c in colliders)
             {
-                if (c.gameObject.CompareTag("Portal"))
+                if (c.gameObject.CompareTag("Portal") && c.gameObject.GetComponent<Portal>().active)
                 {
                     Debug.DrawLine(transform.position, c.gameObject.transform.position);
                     break;
@@ -163,7 +164,7 @@ public class Ping : Photon.PunBehaviour
         canPing = true;
     }
 
-    IEnumerator PingSpawn()
+    public IEnumerator PingSpawn()
     {
         while(PortalActive)
         {
