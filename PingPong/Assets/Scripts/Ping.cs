@@ -18,6 +18,12 @@ public class Ping : Photon.PunBehaviour
     public bool PortalActive;
     public float PingCooldown = 1.5f;
     public float PingRate = 1f;
+    public Material RayMat;
+    public float PingDuration = 0.5f;
+
+    private GameObject myLine;
+    private Vector3 _startPos;
+    private Vector3 _endPos;
 
     private bool canPing = false;
     
@@ -77,7 +83,27 @@ public class Ping : Photon.PunBehaviour
 
         if(nearMonter)
         {
-            Debug.DrawLine(transform.position, nearMonter.transform.position);
+            _startPos = transform.position;
+            _endPos = nearMonter.transform.position;
+
+            if (myLine)
+            {
+                Destroy(myLine);
+            }
+
+            myLine = new GameObject();
+            myLine.transform.position = _startPos;
+            myLine.AddComponent<LineRenderer>();
+            LineRenderer lr = myLine.GetComponent<LineRenderer>();
+            lr.material = RayMat;
+            lr.startColor = Color.white;
+            lr.endColor = Color.black;
+            lr.startWidth = 0.1f;
+            lr.endWidth = 0.1f;
+            lr.SetPosition(0, _startPos);
+            lr.SetPosition(1, _endPos);
+
+            StartCoroutine(DeleteRay());
         }
 
         if (PortalActive)
@@ -106,6 +132,15 @@ public class Ping : Photon.PunBehaviour
         {
             DeployPing();
             yield return new WaitForSeconds(PingRate);
+        }
+    }
+
+    IEnumerator DeleteRay()
+    {
+        yield return new WaitForSeconds(PingDuration);
+        if (myLine)
+        {
+            Destroy(myLine);
         }
     }
 }
