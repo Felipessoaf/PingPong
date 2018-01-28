@@ -22,11 +22,13 @@ public class Player : Photon.PunBehaviour {
         else if(PhotonNetwork.connected == true)
         {
             Visual.SetActive(false);
-            GetComponent<Collider>().enabled = false;
+            //GetComponent<Collider>().enabled = false;
             return;
         }
 		DontDestroyOnLoad(this.gameObject);
-	}
+        Physics.IgnoreLayerCollision(8,8);
+
+    }
 
 	void Start () 
 	{
@@ -41,7 +43,7 @@ public class Player : Photon.PunBehaviour {
 		}
 	}
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
+   // public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 	[PunRPC]
     void Join(PhotonMessageInfo info)
     {
@@ -49,7 +51,7 @@ public class Player : Photon.PunBehaviour {
 		if (!photonView.isMine)
         {
             Visual.SetActive(false);
-            GetComponent<Collider>().enabled = true;
+            //GetComponent<Collider>().enabled = true;
         }
     }
 
