@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Portal : Photon.PunBehaviour
 {
 	public bool active = true;
 	public int playerWin;
+	public Text YouWinText;
 	public ParticleSystem portalParticles;
 
 	void Start()
@@ -18,6 +20,13 @@ public class Portal : Photon.PunBehaviour
 		{
 			playerWin++;
 			col.collider.gameObject.SetActive(false);
+		}
+	}
+	void Update()
+	{
+		if(playerWin == 2)
+		{
+			YouWinText.enabled = true;
 		}
 	}
 
