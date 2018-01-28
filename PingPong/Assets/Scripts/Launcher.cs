@@ -118,7 +118,7 @@ public class Launcher : Photon.PunBehaviour
     }
     void quickjoin(){
         PlayerPrefs.SetString("type",toggle.isOn.ToString());
-        PhotonNetwork.JoinOrCreateRoom(null, new RoomOptions() { MaxPlayers = 4 }, null);
+        PhotonNetwork.JoinRandomRoom();
     }
 	public override void OnConnectedToMaster()
 	{
@@ -131,8 +131,9 @@ public class Launcher : Photon.PunBehaviour
 	}
 		public override void OnPhotonRandomJoinFailed (object[] codeAndMsg)
 	{
-	    Debug.Log("failed find room");
-		join();
+	    PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = 4 }, null);
+        //PhotonNetwork.JoinRandomRoom();
+
 	}
  
 	public override void OnJoinedRoom()
