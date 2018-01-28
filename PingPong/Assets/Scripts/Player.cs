@@ -21,7 +21,7 @@ public class Player : Photon.PunBehaviour {
 		}
         else if(PhotonNetwork.connected == true)
         {
-            Visual.SetActive(false);
+            if(photonView.group==0)Visual.SetActive(false);
             //GetComponent<Collider>().enabled = false;
             return;
         }

@@ -28,9 +28,11 @@ public class Lobby : Photon.PunBehaviour {
 		title.text = PhotonNetwork.room.Name;
 		if(PhotonNetwork.room.PlayerCount>2){
 			PlayerPrefs.SetString("type",true.ToString());
+			photonView.group = 1;
 		}
 		else{
 			PlayerPrefs.SetString("type",false.ToString());
+			photonView.group = 0;
 		}
 	}
 	
