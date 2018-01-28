@@ -25,11 +25,7 @@ public class Ping : Photon.PunBehaviour
     GameObject other;
     private void Start()
     {
-        foreach(GameObject o in GameObject.FindGameObjectsWithTag("Player")){
-            if(o!= this.gameObject){
-                other = o;
-            }
-        }
+        
         monsters = new List<GameObject>(GameObject.FindGameObjectsWithTag("Monster"));
         StartCoroutine(ResetPingCooldown());
         
@@ -50,10 +46,12 @@ public class Ping : Photon.PunBehaviour
 
     public void DeployPing()
     {
+        foreach(GameObject o in GameObject.FindGameObjectsWithTag("Player")){
+            if(o!= this.gameObject){
+                other = o;
+            }
+        }
         Collider[] colliders = Physics.OverlapSphere(transform.position, UnionRadius);
-        float minDist = float.MaxValue;
-        GameObject nearMonter = null;
-        
         foreach(Collider c in colliders)
         {
             if(c.gameObject.CompareTag("Player") && !c.GetComponent<Ping>().canPing)
