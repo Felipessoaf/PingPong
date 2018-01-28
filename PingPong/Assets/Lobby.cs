@@ -26,14 +26,14 @@ public class Lobby : Photon.PunBehaviour {
 
 		//if(id!=PhotonNetwork.player.ID) toggle.interactable = false;
 		title.text = PhotonNetwork.room.Name;
-		if(PhotonNetwork.room.PlayerCount>2){
-			PlayerPrefs.SetString("type",true.ToString());
-			photonView.group = 1;
-		}
-		else{
-			PlayerPrefs.SetString("type",false.ToString());
-			photonView.group = 0;
-		}
+		//if(PhotonNetwork.room.PlayerCount>2){
+			PlayerPrefs.SetInt("character",PhotonNetwork.room.PlayerCount);
+			//photonView.group = 1;
+		//}
+		//else{
+		//	PlayerPrefs.SetString("character",false.ToString());
+		//	photonView.group = 0;
+		//}
 	}
 	
 	void Update()
