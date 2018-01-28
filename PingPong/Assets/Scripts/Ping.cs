@@ -78,8 +78,8 @@ public class Ping : Photon.PunBehaviour
             if(c.gameObject.CompareTag("Player") && !c.GetComponent<Ping>().canPing)
             {
                     PhotonView v = PhotonView.Get(other);
-                    v.RPC("Join", PhotonTargets.All,transform.position);
-                    photonView.RPC("Join", PhotonTargets.All,transform.position);
+                    v.RPC("Join", PhotonTargets.All);
+                    photonView.RPC("Join", PhotonTargets.All);
                 
             }
         }
