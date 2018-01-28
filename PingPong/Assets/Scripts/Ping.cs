@@ -14,16 +14,25 @@ public class Ping : Photon.PunBehaviour
 {
 
     [Tooltip("Distancia maxima do raio do pong inimigo")]
-    public float PongRadius;
+    public float PongRadius,UnionRadius;
     public bool PortalActive;
     public float PingCooldown = 1.5f;
     public float PingRate = 1f;
 
-    private bool canPing = false;
-    
+    public float PingWaitTime = 2f;
+    public bool canPing = false;
+    List<GameObject> monsters;
+    GameObject other;
     private void Start()
     {
+        foreach(GameObject o in GameObject.FindGameObjectsWithTag("Player")){
+            if(o!= this.gameObject){
+                other = o;
+            }
+        }
+        monsters = new List<GameObject>(GameObject.FindGameObjectsWithTag("Monster"));
         StartCoroutine(ResetPingCooldown());
+        
     }
     private void Update()
     {
@@ -41,18 +50,29 @@ public class Ping : Photon.PunBehaviour
 
     public void DeployPing()
     {
-        //this.photonView.RPC("receiveping", PhotonTargets.Others);
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
-        foreach(GameObject o in players){
-            if(o!= this.gameObject){
-                PhotonView view = PhotonView.Get(o);
-                view.RPC("receiveping", PhotonTargets.All,transform.position);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, UnionRadius);
+        float minDist = float.MaxValue;
+        GameObject nearMonter = null;
+        
+        foreach(Collider c in colliders)
+        {
+            if(c.gameObject.CompareTag("Player") && !c.GetComponent<Ping>().canPing)
+            {
+                
+                    PhotonView v = PhotonView.Get(other);
+                    v.RPC("Join", PhotonTargets.All,transform.position);
+                    photonView.RPC("Join", PhotonTargets.All,transform.position);
+                
             }
         }
-        foreach(GameObject o in enemies){
-            PhotonView view = PhotonView.Get(o);
-            view.RPC("receiveping", PhotonTargets.All,transform.position);
+        
+        PhotonView view = PhotonView.Get(other);
+        view.RPC("receiveping", PhotonTargets.All,transform.position);
+        
+
+        foreach(GameObject o in monsters){
+            PhotonView v = PhotonView.Get(o);
+            v.RPC("receiveping", PhotonTargets.All,transform.position);
         }
         GetPong();
     }

@@ -16,6 +16,7 @@ public class Player : Photon.MonoBehaviour {
 			mainCameraFollow.target = this.gameObject.transform;
 			mainCameraFOV.localPlayerTag = this.gameObject.tag;
 		}
+		
 		DontDestroyOnLoad(this.gameObject);
 	}
 	void Start () 
@@ -34,7 +35,7 @@ public class Player : Photon.MonoBehaviour {
 		}
 	}
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
-
+	[PunRPC]
     public void Join()
     {
         if (!photonView.isMine)
