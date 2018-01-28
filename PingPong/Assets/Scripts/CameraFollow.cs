@@ -26,7 +26,7 @@ using cakeslice;
 		{
 			//Debug.Log(hitInfo.collider.gameObject.name);
 			//if(hitInfo.collider.transform.GetChild(1).GetComponent<MeshRenderer>())
-			if(hitInfo.collider.GetComponent<Collider>() && hitInfo.collider.tag != "Player")
+			if(hitInfo.collider.GetComponent<Collider>() && hitInfo.collider.tag != "Player" && hitInfo.collider.tag != "Grama")
 			{
 				Debug.Log(hitInfo.collider.name);
 				GetComponent<OutlineEffect>().lineThickness = 1.25f;
