@@ -20,7 +20,7 @@ using cakeslice;
 	void FixedUpdate () 
 	{
 		RaycastHit hitInfo;
-		bool hit = Physics.Raycast(transform.position,target.position - transform.position,out hitInfo,Mathf.Infinity);
+		bool hit = Physics.Raycast(transform.position,target.position - transform.position,out hitInfo,Mathf.Infinity,LayerMask.NameToLayer("Grama"));
 		Debug.DrawRay(transform.position,target.position - transform.position,Color.green,0.5f);
 		if(hit)
 		{
