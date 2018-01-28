@@ -112,12 +112,12 @@ public class Launcher : Photon.PunBehaviour
  
     #endregion
     void join(){
-        PlayerPrefs.SetString("type",null);
+        //PlayerPrefs.SetString("type",(Random.Range(0,2)==1?true:false).ToString());
         if(nameR.text == "") nameR.text = "devRoom";
         PhotonNetwork.JoinOrCreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
     }
     void quickjoin(){
-        PlayerPrefs.SetString("type",toggle.isOn.ToString());
+        //PlayerPrefs.SetString("type",toggle.isOn.ToString());
         PhotonNetwork.JoinRandomRoom();
     }
 	public override void OnConnectedToMaster()

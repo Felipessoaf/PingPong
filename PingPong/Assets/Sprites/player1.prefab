@@ -344,6 +344,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4182279130473560}
+  - component: {fileID: 95119784374111154}
   m_Layer: 0
   m_Name: player1
   m_TagString: Untagged
@@ -360,8 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4194057174058394}
   - component: {fileID: 114546238614626560}
-  - component: {fileID: 33288328915924612}
-  - component: {fileID: 23392504903622312}
+  - component: {fileID: 137775986520345128}
   m_Layer: 0
   m_Name: "pesco\xE7o corpo1"
   m_TagString: Untagged
@@ -459,7 +459,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874394022702180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9257584, y: 0.122, z: 2.4279652}
+  m_LocalPosition: {x: 1.191, y: 1.337, z: 4.9631114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4276999141445076}
@@ -735,47 +735,23 @@ Transform:
   m_Father: {fileID: 4771441082703474}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -171.13}
---- !u!23 &23392504903622312
-MeshRenderer:
+--- !u!95 &95119784374111154
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1883862740720502}
+  m_GameObject: {fileID: 1874394022702180}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 307124001
-  m_SortingLayer: 1
-  m_SortingOrder: 1
---- !u!33 &33288328915924612
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1883862740720502}
-  m_Mesh: {fileID: 43702345844314722, guid: 7d802ac6f01578a448390fb1ea9f2683, type: 2}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d7e7b97099920bb4ba0f0de3cce78cc6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114035229821025418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -810,7 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.2308889
+  m_Length: 0.23088887
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4767898522090986}
   m_AttachedIK: {fileID: 0}
@@ -826,7 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.21000005
+  m_Length: 0.21000007
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4149039828253638}
   m_AttachedIK: {fileID: 0}
@@ -940,7 +916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.039999858
+  m_Length: 0.0399998
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4589863689396150}
   m_AttachedIK: {fileID: 0}
@@ -972,7 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.11861595
+  m_Length: 0.11861596
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4771441082703474}
   m_AttachedIK: {fileID: 0}
@@ -1008,7 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.1785378
+  m_Length: 0.17853777
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4760601387408502}
   m_AttachedIK: {fileID: 0}
@@ -1040,7 +1016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.120000094
+  m_Length: 0.120000154
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4142553239945264}
   m_AttachedIK: {fileID: 0}
@@ -1126,7 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.120000325
+  m_Length: 0.120000295
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4805039612560138}
   m_AttachedIK: {fileID: 0}
@@ -1357,6 +1333,55 @@ SkinnedMeshRenderer:
   m_AABB:
     m_Center: {x: 0.21990894, y: -0.020000981, z: 0}
     m_Extent: {x: 0.2486585, y: 0.06919776, z: 0}
+  m_DirtyAABB: 0
+--- !u!137 &137775986520345128
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1883862740720502}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 307124001
+  m_SortingLayer: 1
+  m_SortingOrder: 1
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 43702345844314722, guid: 7d802ac6f01578a448390fb1ea9f2683, type: 2}
+  m_Bones:
+  - {fileID: 4697748521583056}
+  - {fileID: 4771441082703474}
+  - {fileID: 4767898522090986}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 4697748521583056}
+  m_AABB:
+    m_Center: {x: 0.17099306, y: -0.013428368, z: 0}
+    m_Extent: {x: 0.23124179, y: 0.11199813, z: 0}
   m_DirtyAABB: 0
 --- !u!137 &137842129467296458
 SkinnedMeshRenderer:

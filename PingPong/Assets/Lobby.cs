@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Lobby : Photon.PunBehaviour {
-	public int id;
+	//public int id;
 	public Text num,title;
 	public Toggle toggle;
+	/*
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
@@ -20,23 +21,37 @@ public class Lobby : Photon.PunBehaviour {
             toggle.isOn = (bool)stream.ReceiveNext();
             //Debug.Log(canPing);
         }
-    }
+    }*/
 	void Start () {
-		if(id!=PhotonNetwork.player.ID) toggle.interactable = false;
+
+		//if(id!=PhotonNetwork.player.ID) toggle.interactable = false;
 		title.text = PhotonNetwork.room.Name;
+		if(PhotonNetwork.room.PlayerCount>2){
+			PlayerPrefs.SetString("type",true.ToString());
+		}
+		else{
+			PlayerPrefs.SetString("type",false.ToString());
+		}
 	}
 	
 	void Update()
 	{
 		num.text = PhotonNetwork.room.PlayerCount.ToString();
+		
+		if(PhotonNetwork.room.PlayerCount==4){
+			//se todo mundo estiver ready
+			PhotonNetwork.LoadLevel("main");
+
+		}
 	}
 	public void Ready(){
 
 		if(PhotonNetwork.room.PlayerCount==4){
 			//se todo mundo estiver ready
-			PhotonNetwork.LoadLevel("lobby");
+			PhotonNetwork.LoadLevel("main");
 
 		}
 	}
+	
 	
 }

@@ -19,7 +19,7 @@ public class Game : Photon.MonoBehaviour {
         }
 	}
 	public void begin(){
-		//if(PhotonNetwork.room.PlayerCount>2){
+		
 		if(bool.Parse(PlayerPrefs.GetString("type"))){
 			PhotonNetwork.Instantiate(this.monster.name, monster.transform.position,monster.transform.rotation, 0);
 		}
