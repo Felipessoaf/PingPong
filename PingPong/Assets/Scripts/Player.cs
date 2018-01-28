@@ -68,6 +68,14 @@ public class Player : Photon.PunBehaviour {
 			Show();
             GetComponent<Ping>().PortalActive = true;
             StartCoroutine(GetComponent<Ping>().PingSpawn());
+			foreach(GameObject o in GameObject.FindGameObjectsWithTag("Monster")){
+            	PhotonView v = PhotonView.Get(o);
+            	v.RPC("end", PhotonTargets.All,transform.position);
+        	}
+			foreach(GameObject o in GameObject.FindGameObjectsWithTag("Player")){
+            	PhotonView v = PhotonView.Get(o);
+            	v.RPC("end", PhotonTargets.All,transform.position);
+        	}
             //GetComponent<Collider>().enabled = true;
         }
     }
