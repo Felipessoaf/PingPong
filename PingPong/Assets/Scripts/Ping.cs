@@ -41,11 +41,18 @@ public class Ping : Photon.PunBehaviour
 
     public void DeployPing()
     {
-        this.photonView.RPC("receiveping", PhotonTargets.Others);
-        GameObject o = GameObject.FindGameObjectWithTag("Monster");
-        if(o){
+        //this.photonView.RPC("receiveping", PhotonTargets.Others);
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
+        foreach(GameObject o in players){
+            if(o!= this.gameObject){
+                PhotonView view = PhotonView.Get(o);
+                view.RPC("receiveping", PhotonTargets.All,transform.position);
+            }
+        }
+        foreach(GameObject o in enemies){
             PhotonView view = PhotonView.Get(o);
-            view.RPC("receiveping", PhotonTargets.All);
+            view.RPC("receiveping", PhotonTargets.All,transform.position);
         }
         GetPong();
     }

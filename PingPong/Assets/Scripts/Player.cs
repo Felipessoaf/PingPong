@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : Photon.MonoBehaviour {
 
-	int id;
 	public Camera mainCamera;
 	public static GameObject LocalPlayerInstance;
 	void Awake(){
@@ -23,8 +22,8 @@ public class Player : Photon.MonoBehaviour {
 	{
 		//if (!isLocalPlayer)
 		{
-             GetComponent<MeshRenderer>().enabled = false;
-             GetComponent<Collider>().enabled = false;
+             //GetComponent<MeshRenderer>().enabled = false;
+             //GetComponent<Collider>().enabled = false;
 		}
 	}	
 	void Update () {
