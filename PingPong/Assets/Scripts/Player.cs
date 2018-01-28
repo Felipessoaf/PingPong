@@ -42,7 +42,7 @@ public class Player : Photon.MonoBehaviour {
 	}
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
-
+	[PunRPC]
     public void Join()
     {
         if (!photonView.isMine)
