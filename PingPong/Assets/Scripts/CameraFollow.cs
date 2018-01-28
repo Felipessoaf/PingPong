@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using cakeslice;
 
 	[RequireComponent(typeof(FOV))]
 	public class CameraFollow : MonoBehaviour {
@@ -14,22 +15,30 @@ using UnityEngine.Networking;
 
 	void Awake()
 	{
-
+		//GetComponent<Outline>();
 	}	
 	void FixedUpdate () 
 	{
 		RaycastHit hitInfo;
-		bool hit = Physics.Raycast(transform.position,transform.position-target.position,out hitInfo,Mathf.Infinity);
+		bool hit = Physics.Raycast(transform.position,target.position - transform.position,out hitInfo,Mathf.Infinity);
+		Debug.DrawRay(transform.position,target.position - transform.position,Color.green,0.5f);
 		if(hit)
 		{
 			//Debug.Log(hitInfo.collider.gameObject.name);
 			//if(hitInfo.collider.transform.GetChild(1).GetComponent<MeshRenderer>())
-			if(hitInfo.collider.GetComponent<MeshRenderer>())
+			if(hitInfo.collider.GetComponent<Collider>() && hitInfo.collider.tag != "Player")// && hitInfo.collider.tag != "Player" || hitInfo.collider.tag != "Monster")
 			{
-				//head.GetComponent<Outline>();
-				//GetComponent<Outline>();
-			}
-		}
+				Debug.Log(hitInfo.collider.name);
+				GetComponent<OutlineEffect>().lineThickness = 1.25f;
+				GetComponent<OutlineEffect>().lineIntensity = 0.6f;
+			}	
+			else
+			{
+				Debug.Log("Effect out");
+				GetComponent<OutlineEffect>().lineIntensity = 0f;
+				GetComponent<OutlineEffect>().lineThickness = 0f;
+			}		
+		}		
 
 		if(target)	
 		{
