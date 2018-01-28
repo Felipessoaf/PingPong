@@ -43,14 +43,15 @@ public class Player : Photon.PunBehaviour {
 		}
 	}
 
-   // public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
+    // public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 	[PunRPC]
     void Join(PhotonMessageInfo info)
     {
-        Debug.Log("aaa");
 		if (!photonView.isMine)
         {
             Visual.SetActive(true);
+            GetComponent<Ping>().PortalActive = true;
+            StartCoroutine(GetComponent<Ping>().PingSpawn());
             //GetComponent<Collider>().enabled = true;
         }
     }

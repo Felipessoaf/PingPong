@@ -38,4 +38,5 @@ MonoBehaviour:
   - RequestForPickupTimes
   - receiveping
   - Join
+  - ActivatePortal
   DisableAutoOpenWizard: 1
