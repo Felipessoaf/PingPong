@@ -48,6 +48,7 @@ public class Ping : Photon.PunBehaviour
         {
             // Network player, receive data
             this.canPing = (bool)stream.ReceiveNext();
+            //Debug.Log(canPing);
         }
     }
     private void Update()

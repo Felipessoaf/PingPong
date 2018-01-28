@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Photon.MonoBehaviour {
+public class Player : Photon.PunBehaviour {
 
 	public Camera mainCamera;
 	public static GameObject LocalPlayerInstance;
