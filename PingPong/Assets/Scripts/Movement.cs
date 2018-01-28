@@ -17,8 +17,8 @@ public class Movement : Photon.MonoBehaviour
 		playerRb = GetComponent<Rigidbody>();
 	}
     void Start () {
-		
-	}
+
+    }
 	
 	void Update()
 	{
@@ -28,8 +28,8 @@ public class Movement : Photon.MonoBehaviour
 		}
 		if(Input.anyKey)
 		{
-		playerVelocityVector.x = Input.GetAxis("Horizontal");
-		playerVelocityVector.z = Input.GetAxis("Vertical");
+		    playerVelocityVector.x = Input.GetAxis("Horizontal");
+		    playerVelocityVector.z = Input.GetAxis("Vertical");
 		}
 		else
 		{
@@ -39,5 +39,6 @@ public class Movement : Photon.MonoBehaviour
 	void FixedUpdate () 
 	{		
 		playerRb.velocity = playerVelocity * playerVelocityVector.normalized;
+        playerRb.velocity = new Vector3(playerRb.velocity.x, playerRb.velocity.y * 1.5f, playerRb.velocity.z);
 	}
 }
