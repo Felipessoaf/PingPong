@@ -18,18 +18,23 @@ public class Player : Photon.PunBehaviour {
             
 			mainCameraFollow.target = this.gameObject.transform;
 			mainCameraFOV.localPlayerTag = this.gameObject.tag;
-		}
-        else if(PhotonNetwork.connected == true)
-        {
-            if(photonView.group==0)Visual.SetActive(false);
-            //GetComponent<Collider>().enabled = false;
-            return;
+			foreach(GameObject o in GameObject.FindGameObjectsWithTag("Player")){
+            if(o!= this.gameObject){
+                o.GetComponent<Player>().Hide();
+            }
         }
+		}
+
 		DontDestroyOnLoad(this.gameObject);
         Physics.IgnoreLayerCollision(8,8);
 
     }
-
+	public void Show(){
+		Visual.SetActive(true);
+	}
+	public void Hide(){
+		Visual.SetActive(false);
+	}
 	void Start () 
 	{
 
@@ -49,7 +54,8 @@ public class Player : Photon.PunBehaviour {
     {
 		if (!photonView.isMine)
         {
-            Visual.SetActive(true);
+            
+			Show();
             GetComponent<Ping>().PortalActive = true;
             StartCoroutine(GetComponent<Ping>().PingSpawn());
             //GetComponent<Collider>().enabled = true;
