@@ -10,7 +10,12 @@ public class Movement : Photon.MonoBehaviour
 	public float playerVelocity;
     public Vector3 playerVelocityVector;
 
-	Rigidbody playerRb;
+    public GameObject Frente;
+    public GameObject Tras;
+    public Animator Anim1;
+    public Animator Anim2;
+
+    Rigidbody playerRb;
 
 	void Awake()
 	{
@@ -30,11 +35,21 @@ public class Movement : Photon.MonoBehaviour
 		{
 		    playerVelocityVector.x = Input.GetAxis("Horizontal");
 		    playerVelocityVector.z = Input.GetAxis("Vertical");
-		}
+            if(Anim1 && Anim2)
+            {
+                Anim1.SetBool("moving", true);
+                Anim2.SetBool("moving", true);
+            }
+        }
 		else
 		{
 			playerVelocityVector = Vector3.zero;
-		}
+            if (Anim1 && Anim2)
+            {
+                Anim1.SetBool("moving", false);
+                Anim2.SetBool("moving", false);
+            }
+        }
 	}
 	void FixedUpdate () 
 	{		
