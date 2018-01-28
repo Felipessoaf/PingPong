@@ -135,7 +135,7 @@ public class Ping : Photon.PunBehaviour
             LineRenderer lr = myLine.GetComponent<LineRenderer>();
             lr.material = RayMat;
             lr.startColor = Color.white;
-            lr.endColor = Color.black;
+            lr.endColor = Color.red;
             lr.startWidth = 0.1f;
             lr.endWidth = 0.1f;
             lr.SetPosition(0, _startPos);
