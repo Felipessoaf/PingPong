@@ -20,6 +20,7 @@ public class Ping : Photon.PunBehaviour
     public float PingRate = 1f;
     public Material RayMat;
     public float PingDuration = 0.5f;
+	public AudioSource PingSound;
 
     private GameObject myLine;
     private Vector3 _startPos;
@@ -78,6 +79,11 @@ public class Ping : Photon.PunBehaviour
             PhotonView v = PhotonView.Get(o);
             v.RPC("receiveping", PhotonTargets.All,transform.position);
         }
+
+		if (PingSound) {
+			PingSound.Play ();
+		}
+
         GetPong();
     }
 
