@@ -15,15 +15,20 @@ public class PingReceive : Photon.PunBehaviour
     void receiveping(PhotonMessageInfo info)
     {
         GameObject otherPlayer = null;
+        /*
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player"))
         {
-            if (go.GetPhotonView().viewID != info.photonView.viewID)
+            
+            if (info.sender.ID 
             {
                 otherPlayer = go;
             }
         }
-
-        if (otherPlayer && !photonView.isMine)
+        */
+        
+        
+        otherPlayer = PhotonView.Find(info.sender.ID).gameObject;
+        if (otherPlayer && photonView.isMine)
         {
             DrawPing(otherPlayer.transform.position);
         }
