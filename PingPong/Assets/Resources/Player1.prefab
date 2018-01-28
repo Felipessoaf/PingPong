@@ -260,6 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4722919432498762}
   - component: {fileID: 95276550277895174}
+  - component: {fileID: 114181263441200670}
   m_Layer: 0
   m_Name: player1 tras
   m_TagString: Untagged
@@ -280,13 +281,11 @@ GameObject:
   - component: {fileID: 23964573657091524}
   - component: {fileID: 54157914978535498}
   - component: {fileID: 114942171607624342}
-  - component: {fileID: 95916511375537740}
   - component: {fileID: 114471981961959016}
   - component: {fileID: 114533526552573194}
   - component: {fileID: 114945047979335506}
   - component: {fileID: 114815502093225882}
   - component: {fileID: 114831414014555366}
-  - component: {fileID: 114555233340420712}
   - component: {fileID: 114205113355441458}
   - component: {fileID: 82786401989458652}
   m_Layer: 8
@@ -694,6 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4018574974835604}
   - component: {fileID: 95884483771169130}
+  - component: {fileID: 114911939236404128}
   m_Layer: 0
   m_Name: player1
   m_TagString: Untagged
@@ -1744,23 +1744,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95916511375537740
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369706436941950}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 51705d86234462e4390403db91afa2ca, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108130100057349090
 Light:
   m_ObjectHideFlags: 1
@@ -1991,6 +1974,33 @@ MonoBehaviour:
   - {fileID: 4975911701944142}
   - {fileID: 4365562189655864}
   - {fileID: 4380923266082744}
+--- !u!114 &114181263441200670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1292227140404922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PhotonView: {fileID: 114815502093225882}
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: moving
+  - Type: 4
+    SynchronizeType: 1
+    Name: left
+  - Type: 4
+    SynchronizeType: 1
+    Name: lado
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!114 &114182626039547672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2284,23 +2294,6 @@ MonoBehaviour:
   - {fileID: 4772109881215732}
   - {fileID: 4387014693998724}
   - {fileID: 4599351728558782}
---- !u!114 &114555233340420712
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369706436941950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers:
-  - SynchronizeType: 1
-    LayerIndex: 0
 --- !u!114 &114567436953138472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2492,10 +2485,11 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 114831414014555366}
-  - {fileID: 114555233340420712}
   - {fileID: 114533526552573194}
   - {fileID: 114205113355441458}
   - {fileID: 114945047979335506}
+  - {fileID: 114911939236404128}
+  - {fileID: 114181263441200670}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -2630,6 +2624,33 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4969649955409742}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114911939236404128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1856067259263070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PhotonView: {fileID: 114815502093225882}
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: moving
+  - Type: 4
+    SynchronizeType: 1
+    Name: left
+  - Type: 4
+    SynchronizeType: 1
+    Name: lado
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!114 &114918709147871590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2711,7 +2732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4debfe76c7d1c1e459f1c9f3c2b72882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Anim: {fileID: 95916511375537740}
+  Anim: {fileID: 95884483771169130}
 --- !u!114 &114945047979335506
 MonoBehaviour:
   m_ObjectHideFlags: 1
