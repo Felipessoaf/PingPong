@@ -41,7 +41,6 @@ public class Player : Photon.PunBehaviour {
 		}
 	}
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 	[PunRPC]
     void Join(PhotonMessageInfo info)
     {
