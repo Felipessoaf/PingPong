@@ -1449,13 +1449,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PongRadius: 3
-  UnionRadius: 5
+  UnionRadius: 0
   PortalActive: 0
   PingCooldown: 0.1
   PingRate: 1
-  RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
+  RayMat: {fileID: 0}
   PingDuration: 0.5
-  PingSound: {fileID: 82153517779819546}
+  PingSound: {fileID: 0}
   PingWaitTime: 2
   canPing: 0
 --- !u!114 &114560100448211978
@@ -1553,7 +1553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  Visual: {fileID: 1305948211679562}
+  Visual: {fileID: 0}
 --- !u!114 &114676721360778450
 MonoBehaviour:
   m_ObjectHideFlags: 1
