@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 114892272047488784}
   - component: {fileID: 114560100448211978}
   - component: {fileID: 114357232935377646}
+  - component: {fileID: 82296794964036230}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -911,7 +912,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 1
 --- !u!23 &23697083416422996
 MeshRenderer:
@@ -1009,6 +1010,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!82 &82296794964036230
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216961505612702}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f6edd3a4d51b1f44db4829491cde3896, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95448371493318776
 Animator:
   serializedVersion: 3
@@ -1368,12 +1449,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PongRadius: 3
-  UnionRadius: 0
+  UnionRadius: 5
   PortalActive: 0
   PingCooldown: 0.1
   PingRate: 1
   RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
   PingDuration: 0.5
+  PingSound: {fileID: 82296794964036230}
   PingWaitTime: 2
   canPing: 0
 --- !u!114 &114560100448211978
@@ -1753,7 +1835,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: -1
   serializedVersion: 2
   m_Quality: 0
@@ -1802,7 +1884,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 2
   serializedVersion: 2
   m_Quality: 0
@@ -1849,7 +1931,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -1898,7 +1980,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 2
   serializedVersion: 2
   m_Quality: 0
@@ -1947,7 +2029,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 307124001
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
