@@ -50,7 +50,7 @@ public class Player : Photon.PunBehaviour {
         Debug.Log("aaa");
 		if (!photonView.isMine)
         {
-            Visual.SetActive(false);
+            Visual.SetActive(true);
             //GetComponent<Collider>().enabled = true;
         }
     }
