@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c8342a6aac3329647afc0bc337c8c1af
-timeCreated: 1517091019
+timeCreated: 1517107333
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -43,8 +43,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.49999997}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 600
   alphaUsage: 1
@@ -82,6 +82,6 @@ TextureImporter:
     outline: []
     physicsShape: []
   spritePackingTag: 
-  userData: 
+  userData: 99425145079272
   assetBundleName: 
   assetBundleVariant: 
