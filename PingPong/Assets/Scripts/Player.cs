@@ -43,9 +43,10 @@ public class Player : Photon.MonoBehaviour {
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 	[PunRPC]
-    public void Join()
+    void Join(PhotonMessageInfo info)
     {
-        if (!photonView.isMine)
+        Debug.Log("aaa");
+		if (!photonView.isMine)
         {
             Visual.SetActive(false);
             GetComponent<Collider>().enabled = true;
