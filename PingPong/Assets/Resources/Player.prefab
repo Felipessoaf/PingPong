@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PongRadius: 3
-  UnionRadius: 0
+  UnionRadius: 5
   PortalActive: 0
   PingCooldown: 0.1
   PingRate: 1
