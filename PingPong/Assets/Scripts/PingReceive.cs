@@ -56,10 +56,6 @@ public class PingReceive : Photon.PunBehaviour
         lr.SetPosition(0, _startPos);
         lr.SetPosition(1, _endPos);
 
-        //Debug.DrawLine(transform.position, t);
-        Debug.Log("Transform other: " + t);
-        Debug.Log("Transform mine " + gameObject.name + ": " + transform.position);
-
         StartCoroutine(DeleteRay());
     }
 

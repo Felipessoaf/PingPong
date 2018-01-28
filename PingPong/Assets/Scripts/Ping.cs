@@ -14,16 +14,42 @@ public class Ping : Photon.PunBehaviour
 {
 
     [Tooltip("Distancia maxima do raio do pong inimigo")]
-    public float PongRadius;
+    public float PongRadius,UnionRadius;
     public bool PortalActive;
     public float PingCooldown = 1.5f;
     public float PingRate = 1f;
+    public Material RayMat;
+    public float PingDuration = 0.5f;
+	public AudioSource PingSound;
 
-    private bool canPing = false;
-    
+    private GameObject myLine;
+    private Vector3 _startPos;
+    private Vector3 _endPos;
+
+    public float PingWaitTime = 2f;
+    public bool canPing = false;
+    List<GameObject> monsters;
+    GameObject other;
     private void Start()
     {
+        
+        monsters = new List<GameObject>(GameObject.FindGameObjectsWithTag("Monster"));
         StartCoroutine(ResetPingCooldown());
+        
+    }
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(canPing);
+        }
+        else
+        {
+            // Network player, receive data
+            this.canPing = (bool)stream.ReceiveNext();
+            //Debug.Log(canPing);
+        }
     }
     private void Update()
     {
@@ -41,19 +67,37 @@ public class Ping : Photon.PunBehaviour
 
     public void DeployPing()
     {
-        //this.photonView.RPC("receiveping", PhotonTargets.Others);
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
-        foreach(GameObject o in players){
+        foreach(GameObject o in GameObject.FindGameObjectsWithTag("Player")){
             if(o!= this.gameObject){
-                PhotonView view = PhotonView.Get(o);
-                view.RPC("receiveping", PhotonTargets.All,transform.position);
+                other = o;
             }
         }
-        foreach(GameObject o in enemies){
-            PhotonView view = PhotonView.Get(o);
-            view.RPC("receiveping", PhotonTargets.All,transform.position);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, UnionRadius);
+        foreach(Collider c in colliders)
+        {
+            if(c.gameObject.CompareTag("Player") && !c.GetComponent<Ping>().canPing)
+            {
+                Game.instance.SelectPortal();
+                PhotonView v = PhotonView.Get(other);
+                v.RPC("Join", PhotonTargets.All);
+                photonView.RPC("Join", PhotonTargets.All);
+                
+            }
         }
+        
+        PhotonView view = PhotonView.Get(other);
+        view.RPC("receiveping", PhotonTargets.All,transform.position);
+        
+
+        foreach(GameObject o in monsters){
+            PhotonView v = PhotonView.Get(o);
+            v.RPC("receiveping", PhotonTargets.All,transform.position);
+        }
+
+		if (PingSound) {
+			PingSound.Play ();
+		}
+
         GetPong();
     }
 
@@ -77,14 +121,34 @@ public class Ping : Photon.PunBehaviour
 
         if(nearMonter)
         {
-            Debug.DrawLine(transform.position, nearMonter.transform.position);
+            _startPos = transform.position;
+            _endPos = nearMonter.transform.position;
+
+            if (myLine)
+            {
+                Destroy(myLine);
+            }
+
+            myLine = new GameObject();
+            myLine.transform.position = _startPos;
+            myLine.AddComponent<LineRenderer>();
+            LineRenderer lr = myLine.GetComponent<LineRenderer>();
+            lr.material = RayMat;
+            lr.startColor = Color.white;
+            lr.endColor = Color.black;
+            lr.startWidth = 0.1f;
+            lr.endWidth = 0.1f;
+            lr.SetPosition(0, _startPos);
+            lr.SetPosition(1, _endPos);
+
+            StartCoroutine(DeleteRay());
         }
 
         if (PortalActive)
         {
             foreach (Collider c in colliders)
             {
-                if (c.gameObject.CompareTag("Portal"))
+                if (c.gameObject.CompareTag("Portal") && c.gameObject.GetComponent<Portal>().active)
                 {
                     Debug.DrawLine(transform.position, c.gameObject.transform.position);
                     break;
@@ -100,12 +164,21 @@ public class Ping : Photon.PunBehaviour
         canPing = true;
     }
 
-    IEnumerator PingSpawn()
+    public IEnumerator PingSpawn()
     {
         while(PortalActive)
         {
             DeployPing();
             yield return new WaitForSeconds(PingRate);
+        }
+    }
+
+    IEnumerator DeleteRay()
+    {
+        yield return new WaitForSeconds(PingDuration);
+        if (myLine)
+        {
+            Destroy(myLine);
         }
     }
 }

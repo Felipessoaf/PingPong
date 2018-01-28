@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Photon.MonoBehaviour {
+public class Player : Photon.PunBehaviour {
 
 	public Camera mainCamera;
 	public static GameObject LocalPlayerInstance;
-	void Awake(){
+    public GameObject Visual;
+
+	void Awake()
+    {
 		if ( photonView.isMine)
 		{
 			Player.LocalPlayerInstance = this.gameObject;
@@ -16,31 +19,40 @@ public class Player : Photon.MonoBehaviour {
 			mainCameraFollow.target = this.gameObject.transform;
 			mainCameraFOV.localPlayerTag = this.gameObject.tag;
 		}
+        else if(PhotonNetwork.connected == true)
+        {
+            Visual.SetActive(false);
+            //GetComponent<Collider>().enabled = false;
+            return;
+        }
 		DontDestroyOnLoad(this.gameObject);
-	}
+        Physics.IgnoreLayerCollision(8,8);
+
+    }
+
 	void Start () 
 	{
-		//if (!isLocalPlayer)
-		{
-             //GetComponent<MeshRenderer>().enabled = false;
-             //GetComponent<Collider>().enabled = false;
-		}
+
 	}	
-	void Update () {
-		//if (!isLocalPlayer) return;
+
+	void Update ()
+    {
 		if (photonView.isMine == false && PhotonNetwork.connected == true)
 		{
 			return;
 		}
 	}
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 
-    public void Join()
+    // public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
+	[PunRPC]
+    void Join(PhotonMessageInfo info)
     {
-        if (!photonView.isMine)
+		if (!photonView.isMine)
         {
-            GetComponent<MeshRenderer>().enabled = true;
-            GetComponent<Collider>().enabled = true;
+            Visual.SetActive(true);
+            GetComponent<Ping>().PortalActive = true;
+            StartCoroutine(GetComponent<Ping>().PingSpawn());
+            //GetComponent<Collider>().enabled = true;
         }
     }
 
