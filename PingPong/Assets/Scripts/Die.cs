@@ -25,9 +25,9 @@ public class Die : Photon.MonoBehaviour
         {
             Debug.LogWarning("Animator not set - Die.cs");
         }
-        SendMessage("PlayerDied");
+        photonView.RPC("PlayerDied", PhotonTargets.All);
     }
-
+    [PunRPC]
     public void PlayerDied()
     {
         Debug.Log("PlayerDied");
