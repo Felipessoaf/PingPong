@@ -35,10 +35,42 @@ public class Movement : Photon.MonoBehaviour
 		{
 		    playerVelocityVector.x = Input.GetAxis("Horizontal");
 		    playerVelocityVector.z = Input.GetAxis("Vertical");
-            if(Anim1 && Anim2)
+
+            if (playerVelocityVector.z <= 0)
+            {
+                Frente.SetActive(true);
+                Tras.SetActive(false);
+            }
+            else
+            {
+                Frente.SetActive(false);
+                Tras.SetActive(true);
+            }
+
+            if (Anim1 && Anim2)
             {
                 Anim1.SetBool("moving", true);
                 Anim2.SetBool("moving", true);
+                if(playerVelocityVector.x < 0)
+                {
+                    Anim1.SetBool("left", true);
+                    Anim2.SetBool("left", true);
+                }
+                else
+                {
+                    Anim1.SetBool("left", false);
+                    Anim2.SetBool("left", false);
+                }
+                if (playerVelocityVector.z == 0)
+                {
+                    Anim1.SetBool("lado", true);
+                    Anim2.SetBool("lado", true);
+                }
+                else
+                {
+                    Anim1.SetBool("lado", false);
+                    Anim2.SetBool("lado", false);
+                }
             }
         }
 		else
