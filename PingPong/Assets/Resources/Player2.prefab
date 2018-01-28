@@ -2258,6 +2258,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVelocity: 5
   playerVelocityVector: {x: 0, y: 0, z: 0}
+  Frente: {fileID: 0}
+  Tras: {fileID: 0}
+  Anim1: {fileID: 0}
+  Anim2: {fileID: 0}
 --- !u!114 &114524045629479980
 MonoBehaviour:
   m_ObjectHideFlags: 1
