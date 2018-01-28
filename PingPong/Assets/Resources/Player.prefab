@@ -1374,6 +1374,7 @@ MonoBehaviour:
   PingRate: 1
   RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
   PingDuration: 0.5
+  PingSound: {fileID: 0}
   PingWaitTime: 2
   canPing: 0
 --- !u!114 &114560100448211978
