@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198569744964388446}
   - component: {fileID: 199689939262695716}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: PortalParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1739625888319078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.74, y: 1.5, z: 0}
+  m_LocalPosition: {x: 20.9, y: 0, z: -26.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4476006134227032}
@@ -85,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activate: 0
   playerWin: 0
+  portalParticles: {fileID: 198569744964388446}
 --- !u!136 &136246649227326716
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -93,7 +94,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1739625888319078}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 1
   m_Height: 3.97
   m_Direction: 1
@@ -110,7 +111,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -158,7 +159,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 138064546
+  randomSeed: -1184105719
   InitialModule:
     serializedVersion: 3
     enabled: 1
