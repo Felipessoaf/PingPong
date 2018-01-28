@@ -39,6 +39,6 @@ public class Movement : Photon.MonoBehaviour
 	void FixedUpdate () 
 	{		
 		playerRb.velocity = playerVelocity * playerVelocityVector.normalized;
-        playerRb.velocity = new Vector3(playerRb.velocity.x, playerRb.velocity.y * 1.5f, playerRb.velocity.z);
+        playerRb.velocity = new Vector3(playerRb.velocity.x, playerRb.velocity.y, playerRb.velocity.z * 1.5f);
 	}
 }
