@@ -36,7 +36,7 @@ public class Lobby : Photon.PunBehaviour {
 
 		if(PhotonNetwork.room.PlayerCount==4){
 			//se todo mundo estiver ready
-			PhotonNetwork.LoadLevel("lobby");
+			PhotonNetwork.LoadLevel("main");
 
 		}
 	}
