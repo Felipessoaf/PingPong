@@ -18,11 +18,7 @@ public class Player : Photon.PunBehaviour {
             
 			mainCameraFollow.target = this.gameObject.transform;
 			mainCameraFOV.localPlayerTag = this.gameObject.tag;
-			foreach(GameObject o in GameObject.FindGameObjectsWithTag("Player")){
-            if(o!= this.gameObject){
-                o.GetComponent<Player>().Hide();
-            }
-        }
+			
 		}
 
 		DontDestroyOnLoad(this.gameObject);
@@ -35,9 +31,21 @@ public class Player : Photon.PunBehaviour {
 	public void Hide(){
 		Visual.SetActive(false);
 	}
+	IEnumerator disableplayers(){
+		yield return new WaitForSeconds(1f);
+		if ( photonView.isMine)
+		{
+			foreach(GameObject o in GameObject.FindGameObjectsWithTag("Player")){
+				if(o!= this.gameObject){
+					o.GetComponent<Player>().Hide();
+				}
+			}
+		}
+	}
 	void Start () 
 	{
-
+		StartCoroutine(disableplayers());
+		
 	}	
 
 	void Update ()
