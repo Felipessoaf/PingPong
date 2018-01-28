@@ -7,8 +7,10 @@ public class Player : Photon.PunBehaviour {
 	public Camera mainCamera;
 	public static GameObject LocalPlayerInstance;
     public GameObject Visual;
+    public bool Alive;
+    public bool Won;
 
-	void Awake()
+    void Awake()
     {
 		if ( photonView.isMine)
 		{
