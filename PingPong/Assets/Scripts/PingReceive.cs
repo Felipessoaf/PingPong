@@ -12,9 +12,26 @@ public class PingReceive : Photon.PunBehaviour
     private Vector3 _endPos;
 
     [PunRPC]
-    void receiveping(Vector3 pos, PhotonMessageInfo info)
+    void receiveping(PhotonMessageInfo info)
     {
-        DrawPing(pos);
+        GameObject otherPlayer = null;
+        /*
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            
+            if (info.sender.ID 
+            {
+                otherPlayer = go;
+            }
+        }
+        */
+        
+        
+        otherPlayer = PhotonView.Find(info.sender.ID).gameObject;
+        if (otherPlayer && photonView.isMine)
+        {
+            DrawPing(otherPlayer.transform.position);
+        }
     }
 
     public void DrawPing(Vector3 t)
@@ -32,15 +49,16 @@ public class PingReceive : Photon.PunBehaviour
         myLine.AddComponent<LineRenderer>();
         LineRenderer lr = myLine.GetComponent<LineRenderer>();
         lr.material = RayMat;
-        lr.startColor = Color.black;
-        lr.endColor = Color.white;
+        lr.startColor = Color.white;
+        lr.endColor = Color.black;
         lr.startWidth = 0.1f;
         lr.endWidth = 0.1f;
         lr.SetPosition(0, _startPos);
         lr.SetPosition(1, _endPos);
 
-        Debug.DrawLine(transform.position, t);
-        Debug.Log("Transform: " + t);
+        //Debug.DrawLine(transform.position, t);
+        Debug.Log("Transform other: " + t);
+        Debug.Log("Transform mine " + gameObject.name + ": " + transform.position);
 
         StartCoroutine(DeleteRay());
     }

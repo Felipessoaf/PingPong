@@ -27,6 +27,11 @@ public class Ping : Photon.PunBehaviour
     }
     private void Update()
     {
+        if (photonView.isMine == false && PhotonNetwork.connected == true)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && canPing)
         {
             DeployPing();
@@ -36,8 +41,12 @@ public class Ping : Photon.PunBehaviour
 
     public void DeployPing()
     {
-        this.photonView.RPC("receiveping", PhotonTargets.Others, transform.position);
-        
+        this.photonView.RPC("receiveping", PhotonTargets.Others);
+        GameObject o = GameObject.FindGameObjectWithTag("Monster");
+        if(o){
+            PhotonView view = PhotonView.Get(o);
+            view.RPC("receiveping", PhotonTargets.All);
+        }
         GetPong();
     }
 
