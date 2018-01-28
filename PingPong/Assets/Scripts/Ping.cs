@@ -37,6 +37,19 @@ public class Ping : Photon.PunBehaviour
         StartCoroutine(ResetPingCooldown());
         
     }
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(canPing);
+        }
+        else
+        {
+            // Network player, receive data
+            this.canPing = (bool)stream.ReceiveNext();
+        }
+    }
     private void Update()
     {
         if (photonView.isMine == false && PhotonNetwork.connected == true)
