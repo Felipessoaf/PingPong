@@ -54,7 +54,7 @@ public class Launcher : Photon.PunBehaviour
         void Start()
         {
 			connecting = false;
-            if (!PhotonNetwork.connected)status.text = "Connect";
+            if (!PhotonNetwork.connected) status.text = "Connect";
             Connect();
 			//PhotonNetwork.JoinLobby ();
 
@@ -92,13 +92,33 @@ public class Launcher : Photon.PunBehaviour
                 PhotonNetwork.ConnectUsingSettings(_gameVersion);
             }
         }
- 
+        public void QuickConnect()
+        {
+			connecting = true;
+            // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
+            if (PhotonNetwork.connected)
+            {
+                // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnPhotonRandomJoinFailed() and we'll create one.
+                //PhotonNetwork.JoinRandomRoom();
+                quickjoin();
+
+            }
+            else
+            {
+                // #Critical, we must first and foremost connect to Photon Online Server.
+                PhotonNetwork.ConnectUsingSettings(_gameVersion);
+            }
+        }
  
     #endregion
     void join(){
-        PlayerPrefs.SetString("type",toggle.isOn.ToString());
+        PlayerPrefs.SetString("type",null);
         if(nameR.text == "") nameR.text = "devRoom";
         PhotonNetwork.JoinOrCreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
+    }
+    void quickjoin(){
+        PlayerPrefs.SetString("type",toggle.isOn.ToString());
+        PhotonNetwork.JoinOrCreateRoom(null, new RoomOptions() { MaxPlayers = 4 }, null);
     }
 	public override void OnConnectedToMaster()
 	{
@@ -118,7 +138,7 @@ public class Launcher : Photon.PunBehaviour
 	public override void OnJoinedRoom()
 	{
 		Debug.Log("found room");
-		PhotonNetwork.LoadLevel("main");
+		PhotonNetwork.LoadLevel("lobby");
 	}
  
     }
