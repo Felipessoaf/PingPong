@@ -18,6 +18,7 @@ public class Ping : Photon.PunBehaviour
     public bool PortalActive;
     public float PingCooldown = 1.5f;
     public float PingRate = 1f;
+	public AudioSource PingSound;
 
     private bool canPing = false;
     
@@ -42,6 +43,7 @@ public class Ping : Photon.PunBehaviour
     public void DeployPing()
     {
         //this.photonView.RPC("receiveping", PhotonTargets.Others);
+		PingSound.Play();
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Monster");
         foreach(GameObject o in players){
