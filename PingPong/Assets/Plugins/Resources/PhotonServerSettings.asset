@@ -39,4 +39,6 @@ MonoBehaviour:
   - receiveping
   - Join
   - ActivatePortal
+  - end
+  - PlayerDied
   DisableAutoOpenWizard: 1

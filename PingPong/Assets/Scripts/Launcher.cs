@@ -6,140 +6,79 @@ public class Launcher : Photon.PunBehaviour
         
         
         
-        #region Public Variables
         public Text status;
         public InputField nameR;
         public Toggle toggle;
-        #endregion
- 
 
-        #region Private Variables
- 
- 
-        /// <summary>
-        /// This client's version number. Users are separated from each other by gameversion (which allows you to make breaking changes).
-        /// </summary>
+        public string NextScene;
+
         string _gameVersion = "1";
- 
- 
-        #endregion
- 
- 
-        #region MonoBehaviour CallBacks
- 
- 
-        /// <summary>
-        /// MonoBehaviour method called on GameObject by Unity during early initialization phase.
-        /// </summary>
         void Awake()
         {
- 
- 
-            // #Critical
-            // we don't join the lobby. There is no need to join a lobby to get the list of rooms.
             PhotonNetwork.autoJoinLobby = false;
- 
- 
-            // #Critical
-            // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
             PhotonNetwork.automaticallySyncScene = true;
         }
- 
- 
-        /// <summary>
-        /// MonoBehaviour method called on GameObject by Unity during initialization phase.
-        /// </summary>
-		bool connecting;
-
-        void Start()
+ 		void Start()
         {
-			connecting = false;
-            if (!PhotonNetwork.connected) status.text = "Connect";
+            if (!PhotonNetwork.connected) {
+                status.text = "Connect";
+            }
             Connect();
-			//PhotonNetwork.JoinLobby ();
-
         }
-		public override void OnJoinedLobby (){
-			Debug.Log("joined lobby");
-			//PhotonNetwork.JoinRandomRoom ();
-		}
- 
-        #endregion
- 
- 
-        #region Public Methods
- 
- 
-        /// <summary>
-        /// Start the connection process. 
-        /// - If already connected, we attempt joining a random room
-        /// - if not yet connected, Connect this application instance to Photon Cloud Network
-        /// </summary>
+
         public void Connect()
         {
-			connecting = true;
-            // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
             if (PhotonNetwork.connected)
             {
-                // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnPhotonRandomJoinFailed() and we'll create one.
-                //PhotonNetwork.JoinRandomRoom();
-                join();
+                Join();
 
             }
             else
             {
-                // #Critical, we must first and foremost connect to Photon Online Server.
                 PhotonNetwork.ConnectUsingSettings(_gameVersion);
             }
         }
-        public void QuickConnect()
-        {
-			connecting = true;
-            // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
-            if (PhotonNetwork.connected)
-            {
-                // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnPhotonRandomJoinFailed() and we'll create one.
-                //PhotonNetwork.JoinRandomRoom();
-                quickjoin();
+        
 
-            }
-            else
-            {
-                // #Critical, we must first and foremost connect to Photon Online Server.
-                PhotonNetwork.ConnectUsingSettings(_gameVersion);
-            }
-        }
- 
-    #endregion
-    void join(){
+    void Join(){
         //PlayerPrefs.SetString("type",(Random.Range(0,2)==1?true:false).ToString());
+        PlayerPrefs.SetString("character",toggle.isOn?"monster":"hero");
         if(nameR.text == "") nameR.text = "devRoom";
         PhotonNetwork.JoinOrCreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
     }
-    void quickjoin(){
-        //PlayerPrefs.SetString("type",toggle.isOn.ToString());
-        PhotonNetwork.JoinRandomRoom();
-    }
+    
 	public override void OnConnectedToMaster()
 	{
 		Debug.Log("connected");
         status.text = "Play";
-        
-		if(connecting){
-			//PhotonNetwork.JoinRandomRoom();
-		}
 	}
-		public override void OnPhotonRandomJoinFailed (object[] codeAndMsg)
+    public override void OnJoinedRoom()
+	{
+		PhotonNetwork.LoadLevel(NextScene);//"lobby"
+	}
+    /*
+	public override void OnPhotonRandomJoinFailed (object[] codeAndMsg)
 	{
 	    PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = 4 }, null);
         //PhotonNetwork.JoinRandomRoom();
 
 	}
- 
-	public override void OnJoinedRoom()
-	{
-		Debug.Log("found room");
-		PhotonNetwork.LoadLevel("lobby");
-	}
+    public void QuickConnect(){
+        if (PhotonNetwork.connected)
+        {
+
+            quickjoin();
+
+        }
+        else
+        {
+            PhotonNetwork.ConnectUsingSettings(_gameVersion);
+        }
+    }
+    void quickjoin(){
+        //PlayerPrefs.SetString("type",toggle.isOn.ToString());
+        PhotonNetwork.JoinRandomRoom();
+    }
+	*/
  
     }

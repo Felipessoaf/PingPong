@@ -438,14 +438,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723004243201578}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43298853017916710, guid: 2fad724400cf0504085b2b08b00ec774, type: 2}
 --- !u!33 &33603720828353862
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1887867714625130}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43709707859055074, guid: 2ace8f65887b1e448a74e958b884e527, type: 2}
 --- !u!95 &95536208060816784
 Animator:
   serializedVersion: 3
