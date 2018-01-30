@@ -77,7 +77,7 @@ public class Ping : Photon.PunBehaviour
         {
             if(c.gameObject.CompareTag("Player") && !c.GetComponent<Ping>().canPing)
             {
-                Game.instance.SelectPortal();
+                //Game.instance.SelectPortal();
                 PhotonView v = PhotonView.Get(other);
                 v.RPC("Join", PhotonTargets.All);
                 photonView.RPC("Join", PhotonTargets.All);
