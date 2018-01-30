@@ -38,7 +38,7 @@ public class PhotonAnimatorViewEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        //base.OnInspectorGUI();
+        base.OnInspectorGUI();
 
         if (this.m_Animator == null)
         {
