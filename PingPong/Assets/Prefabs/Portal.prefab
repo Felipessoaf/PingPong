@@ -85,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   playerWin: 0
+  YouWinText: {fileID: 0}
   portalParticles: {fileID: 198569744964388446}
 --- !u!136 &136246649227326716
 CapsuleCollider:

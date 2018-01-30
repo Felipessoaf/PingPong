@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Game : Photon.MonoBehaviour {
 	public static Game instance;
-	public GameObject woman,man,monster;
+	public GameObject hero,monster;
 
     private List<GameObject> portals;
-	// Use this for initialization
 	void Start () {
 		
 		if(instance){
@@ -15,17 +14,19 @@ public class Game : Photon.MonoBehaviour {
 		}
 		else{
 			instance = this;
-            begin();
+            Begin();
         }
+
 	}
-	public void begin(){
-		int ch =  PlayerPrefs.GetInt("character");
-		if(ch>2){
+	public void Begin(){
+		string character =  PlayerPrefs.GetString("character");
+        if(character=="monster"){
 			PhotonNetwork.Instantiate(this.monster.name, monster.transform.position,monster.transform.rotation, 0);
 		}
-		else{
-			if(ch==1) PhotonNetwork.Instantiate(this.woman.name, woman.transform.position,woman.transform.rotation, 0);
-			if(ch==2) PhotonNetwork.Instantiate(this.man.name, man.transform.position,man.transform.rotation, 0);
+        if(character=="hero"){
+			PhotonNetwork.Instantiate(this.hero.name, hero.transform.position,hero.transform.rotation, 0);            
+			//if(ch==1) PhotonNetwork.Instantiate(this.woman.name, woman.transform.position,woman.transform.rotation, 0);
+			//if(ch==2) PhotonNetwork.Instantiate(this.man.name, man.transform.position,man.transform.rotation, 0);
 		}
 
         portals = new List<GameObject>();
