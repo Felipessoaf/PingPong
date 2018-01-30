@@ -80,4 +80,12 @@ public class Player : Photon.PunBehaviour {
         }
     }
 
+    public void JoinLocal()
+    {
+        Show();
+        GetComponent<Ping>().PortalActive = true;
+        //StartCoroutine(GetComponent<Ping>().PingSpawn());
+        GetComponent<End>().EndLocal();
+    }
+
 }
