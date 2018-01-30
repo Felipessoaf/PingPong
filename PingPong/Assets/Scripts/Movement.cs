@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 public class Movement : Photon.MonoBehaviour 
 {
 	[Range(1.0f,50f)]
-	public float playerVelocity;
+	public float playerVelocity = 10f;
     public Vector3 playerVelocityVector;
 
     public GameObject Frente;
@@ -27,28 +27,31 @@ public class Movement : Photon.MonoBehaviour
 	
 	void Update()
 	{
-		if (photonView.isMine == false && PhotonNetwork.connected == true)
-		{
-			return;
-		}
+		//if (photonView.isMine == false && PhotonNetwork.connected == true)
+		//{
+		//	return;
+		//}
 		if(Input.anyKey)
 		{
 		    playerVelocityVector.x = Input.GetAxis("Horizontal");
 		    playerVelocityVector.z = Input.GetAxis("Vertical");
 
-			if (Frente == true) 
-			{
-				if (playerVelocityVector.z <= 0)
-				{
-					Frente.SetActive (true);
-					Tras.SetActive (false);
-				} 
-				else 
-				{
-					Frente.SetActive (false);
-					Tras.SetActive (true);
-				}
-			}
+            if (playerVelocityVector.z <= 0)
+            {
+                if(Frente && Tras)
+                {
+                    Frente.SetActive(true);
+                    Tras.SetActive(false);
+                }
+            }
+            else
+            {
+                if (Frente && Tras)
+                {
+                    Frente.SetActive(false);
+                    Tras.SetActive(true);
+                }
+            }
 
             if (Anim1 && Anim2)
             {
