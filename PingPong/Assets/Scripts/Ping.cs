@@ -10,6 +10,7 @@ using UnityEngine.Networking;
 //    public NetworkInstanceId netId;
 //}
 
+
 public class Ping : Photon.PunBehaviour
 {
 
@@ -28,12 +29,16 @@ public class Ping : Photon.PunBehaviour
 
     public float PingWaitTime = 2f;
     public bool canPing = false;
-    List<GameObject> monsters;
-    GameObject other;
+    //List<GameObject> monsters;
+    GameObject otherPlayer;
+	GameObject Monster1;
+
+	public bool Playable = false;
+
     private void Start()
     {
         
-        monsters = new List<GameObject>(GameObject.FindGameObjectsWithTag("Monster"));
+        //monsters = new List<GameObject>(GameObject.FindGameObjectsWithTag("Monster"));
         StartCoroutine(ResetPingCooldown());
         
     }
@@ -53,23 +58,73 @@ public class Ping : Photon.PunBehaviour
     }
     private void Update()
     {
+		/*
         if (photonView.isMine == false && PhotonNetwork.connected == true)
         {
             return;
-        }
+        }*/
 
-        if (Input.GetKeyDown(KeyCode.Space) && canPing)
+		if (Input.GetKeyDown(KeyCode.Space) && canPing && Playable)
         {
-            DeployPing();
+			Debug.Log ("Trying to ping here");
+            newDeployPing();
             StartCoroutine(ResetPingCooldown());
         }
     }
 
+	public void newDeployPing()
+	{
+		foreach (GameObject o in GameObject.FindGameObjectsWithTag("Player")) 
+		{
+			if(o!= this.gameObject)
+			{
+				otherPlayer = o;
+				//Debug.Log ("Player found" + "Position: " + otherPlayer.transform.position);
+				otherPlayer.GetComponent<Ping>().newReceivePing(this.transform.position);
+			}
+			if (!otherPlayer) 
+			{
+				Debug.Log ("Other player not found");
+			}
+		}
+		foreach (GameObject o in GameObject.FindGameObjectsWithTag("Monster")) 
+		{
+			if(o!= this.gameObject)
+			{
+				Monster1 = o;
+				Debug.Log ("Monster found" + "Position: " + otherPlayer.transform.position);
+				Debug.Log("Monster Distance: " + Vector3.Distance(this.transform.position,otherPlayer.transform.position));
+			}
+			if (!otherPlayer) 
+			{
+				Debug.Log ("Monster1 not found");
+			}
+		}
+	}
+	public void newReceivePing(Vector3 otherPlayerPos)
+	{
+		Debug.Log ("Ping received and the Pos is: " + otherPlayerPos);
+		myLine = GameObject.FindGameObjectWithTag("Line");
+
+
+
+		//Setting up the line
+		LineRenderer lineRender = myLine.GetComponent<LineRenderer> ();
+		lineRender.enabled = true;
+
+		//Setting the positions
+		lineRender.SetPosition (0, this.transform.position);
+		lineRender.SetPosition (1, otherPlayerPos  + new Vector3 (0,1,0) );
+
+		StartCoroutine (DeleteRay());
+	}
+
+	/*
     public void DeployPing()
     {
         foreach(GameObject o in GameObject.FindGameObjectsWithTag("Player")){
             if(o!= this.gameObject){
-                other = o;
+                otherPlayer = o;
             }
         }
         Collider[] colliders = Physics.OverlapSphere(transform.position, UnionRadius);
@@ -78,14 +133,14 @@ public class Ping : Photon.PunBehaviour
             if(c.gameObject.CompareTag("Player") && !c.GetComponent<Ping>().canPing)
             {
                 Game.instance.SelectPortal();
-                PhotonView v = PhotonView.Get(other);
+                PhotonView v = PhotonView.Get(otherPlayer);
                 v.RPC("Join", PhotonTargets.All);
                 photonView.RPC("Join", PhotonTargets.All);
                 
             }
         }
         
-        PhotonView view = PhotonView.Get(other);
+        PhotonView view = PhotonView.Get(otherPlayer);
         view.RPC("receiveping", PhotonTargets.All,transform.position);
         
 
@@ -99,7 +154,7 @@ public class Ping : Photon.PunBehaviour
 		}
 
         GetPong();
-    }
+    }*/
 
     void GetPong()
     {
@@ -168,7 +223,7 @@ public class Ping : Photon.PunBehaviour
     {
         while(PortalActive)
         {
-            DeployPing();
+            //DeployPing();
             yield return new WaitForSeconds(PingRate);
         }
     }
@@ -178,7 +233,8 @@ public class Ping : Photon.PunBehaviour
         yield return new WaitForSeconds(PingDuration);
         if (myLine)
         {
-            Destroy(myLine);
+            //Destroy(myLine);
+			myLine.GetComponent<LineRenderer>().enabled = false;
         }
     }
 }

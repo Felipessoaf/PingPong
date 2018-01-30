@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.03999981
+  m_Length: 0.039999772
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4416940577154738}
   m_AttachedIK: {fileID: 0}
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.23088892
+  m_Length: 0.23088887
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4156729478079124}
   m_AttachedIK: {fileID: 0}
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.21
+  m_Length: 0.21000001
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4337323280045014}
   m_AttachedIK: {fileID: 0}
@@ -1400,6 +1400,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVelocity: 5
   playerVelocityVector: {x: 0, y: 0, z: 0}
+  Frente: {fileID: 0}
+  Tras: {fileID: 0}
+  Anim1: {fileID: 0}
+  Anim2: {fileID: 0}
 --- !u!114 &114456947309975112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1451,13 +1455,14 @@ MonoBehaviour:
   PongRadius: 3
   UnionRadius: 0
   PortalActive: 0
-  PingCooldown: 0.1
+  PingCooldown: 1
   PingRate: 1
   RayMat: {fileID: 0}
   PingDuration: 0.5
   PingSound: {fileID: 0}
   PingWaitTime: 2
   canPing: 0
+  Playable: 1
 --- !u!114 &114560100448211978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1469,6 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PhotonView: {fileID: 0}
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
   m_SynchronizeParameters: []
@@ -1509,7 +1515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.18
+  m_Length: 0.1800001
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4174502483819782}
   m_AttachedIK: {fileID: 0}
@@ -1525,7 +1531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.12000039
+  m_Length: 0.120000355
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4081297707949142}
   m_AttachedIK: {fileID: 0}
@@ -1554,6 +1560,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   Visual: {fileID: 0}
+  Alive: 0
+  Won: 0
 --- !u!114 &114676721360778450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1613,7 +1621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.21910639
+  m_Length: 0.21910638
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4540226462156932}
   m_AttachedIK: {fileID: 0}
@@ -1731,7 +1739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.119999945
+  m_Length: 0.120000154
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4896158309741290}
   m_AttachedIK: {fileID: 0}

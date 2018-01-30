@@ -2272,6 +2272,7 @@ MonoBehaviour:
   PingSound: {fileID: 82786401989458652}
   PingWaitTime: 2
   canPing: 0
+  Playable: 0
 --- !u!114 &114542134251156554
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -36,16 +36,19 @@ public class Movement : Photon.MonoBehaviour
 		    playerVelocityVector.x = Input.GetAxis("Horizontal");
 		    playerVelocityVector.z = Input.GetAxis("Vertical");
 
-            if (playerVelocityVector.z <= 0)
-            {
-                Frente.SetActive(true);
-                Tras.SetActive(false);
-            }
-            else
-            {
-                Frente.SetActive(false);
-                Tras.SetActive(true);
-            }
+			if (Frente == true) 
+			{
+				if (playerVelocityVector.z <= 0)
+				{
+					Frente.SetActive (true);
+					Tras.SetActive (false);
+				} 
+				else 
+				{
+					Frente.SetActive (false);
+					Tras.SetActive (true);
+				}
+			}
 
             if (Anim1 && Anim2)
             {
