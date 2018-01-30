@@ -27,10 +27,10 @@ public class Movement : Photon.MonoBehaviour
 	
 	void Update()
 	{
-		//if (photonView.isMine == false && PhotonNetwork.connected == true)
-		//{
-		//	return;
-		//}
+		if (photonView.isMine == false && PhotonNetwork.connected == true)
+		{
+			return;
+		}
 		if(Input.anyKey)
 		{
 		    playerVelocityVector.x = Input.GetAxis("Horizontal");

@@ -58,11 +58,11 @@ public class Ping : Photon.MonoBehaviour
     }
     private void Update()
     {
-		/*
+		
         if (photonView.isMine == false && PhotonNetwork.connected == true)
         {
             return;
-        }*/
+        }
 
 		if (Input.GetKeyDown(KeyCode.Space) && canPing && Playable)
         {
@@ -79,8 +79,18 @@ public class Ping : Photon.MonoBehaviour
         {
             if (c.gameObject.CompareTag("Hero") && !c.GetComponent<Ping>().canPing)
             {
-                GetComponent<Player>().JoinLocal();
+                //GetComponent<Player>().JoinLocal();
+                this.photonView.RPC("Join", PhotonTargets.All);
 
+                foreach (GameObject o in GameObject.FindGameObjectsWithTag("Hero")) 
+                {
+                    if(o!= this.gameObject)
+                    {
+                        otherPlayer = o;
+
+                        PhotonView.Get(otherPlayer).RPC("Join", PhotonTargets.All);
+                    }
+                }
                 //Game.instance.SelectPortal();
                 //PhotonView v = PhotonView.Get(otherPlayer);
                 //v.RPC("Join", PhotonTargets.All);

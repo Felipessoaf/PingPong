@@ -1841,6 +1841,7 @@ MonoBehaviour:
   Visual: {fileID: 1200034229036800}
   Alive: 0
   Won: 0
+  joined: 0
 --- !u!114 &114121934012986500
 MonoBehaviour:
   m_ObjectHideFlags: 1
