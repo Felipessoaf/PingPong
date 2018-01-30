@@ -74,7 +74,22 @@ public class Ping : Photon.MonoBehaviour
 
 	public void newDeployPing()
 	{
-		foreach (GameObject o in GameObject.FindGameObjectsWithTag("Hero")) 
+        Collider[] colliders = Physics.OverlapSphere(transform.position, UnionRadius);
+        foreach (Collider c in colliders)
+        {
+            if (c.gameObject.CompareTag("Hero") && !c.GetComponent<Ping>().canPing)
+            {
+                GetComponent<Player>().JoinLocal();
+
+                //Game.instance.SelectPortal();
+                //PhotonView v = PhotonView.Get(otherPlayer);
+                //v.RPC("Join", PhotonTargets.All);
+                //photonView.RPC("Join", PhotonTargets.All);
+
+            }
+        }
+
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Hero")) 
 		{
 			if(o!= this.gameObject)
 			{
@@ -97,7 +112,7 @@ public class Ping : Photon.MonoBehaviour
 				Debug.Log ("Monster found" + "Position: " + otherPlayer.transform.position);
 				Debug.Log("Monster Distance: " + Vector3.Distance(this.transform.position,otherPlayer.transform.position));
 			}
-			if (!otherPlayer) 
+			if (!Monster1) 
 			{
 				Debug.Log ("Monster1 not found");
 			}
