@@ -56,6 +56,10 @@ public class Launcher : Photon.PunBehaviour
 	{
 		PhotonNetwork.LoadLevel(NextScene);//"lobby"
 	}
+    public override void OnJoinedLobby()
+	{
+		//PhotonNetwork.LoadLevel(NextScene);//"lobby"
+	}
     /*
 	public override void OnPhotonRandomJoinFailed (object[] codeAndMsg)
 	{

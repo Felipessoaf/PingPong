@@ -2267,11 +2267,11 @@ MonoBehaviour:
   PortalActive: 0
   PingCooldown: 0.1
   PingRate: 1
-  RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
   PingDuration: 0.5
   PingSound: {fileID: 82786401989458652}
   PingWaitTime: 2
   canPing: 0
+  Playable: 0
 --- !u!114 &114542134251156554
 MonoBehaviour:
   m_ObjectHideFlags: 1
