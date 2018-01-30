@@ -1641,7 +1641,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f6edd3a4d51b1f44db4829491cde3896, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1837,11 +1837,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41553172744a5b4b9d0b6ccb3baa1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
   Visual: {fileID: 1200034229036800}
   Alive: 0
   Won: 0
-  joined: 0
 --- !u!114 &114121934012986500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2455,8 +2453,8 @@ MonoBehaviour:
   PortalActive: 0
   PingCooldown: 0.1
   PingRate: 1
+  RayMat: {fileID: 0}
   PingDuration: 0.5
-  PingSound: {fileID: 82804254084128274}
   PingWaitTime: 2
   canPing: 0
   Playable: 0

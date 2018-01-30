@@ -5,9 +5,13 @@ using UnityEngine;
 public class Hero : Photon.MonoBehaviour {
 
 	// Use this for initialization
+	public bool joined;
+
 	void Start () {
 		Physics.IgnoreLayerCollision(8,8);
 		StartCoroutine(waitfull());
+		joined = false;
+
 	}
 
 	public void Show(){
@@ -19,7 +23,7 @@ public class Hero : Photon.MonoBehaviour {
 	IEnumerator waitfull(){
 		yield return new WaitUntil(()=>PhotonNetwork.playerList.Length==4);
 		while(true){
-			if(photonView.isMine && !GetComponent<Player>().joined){
+			if(photonView.isMine && !joined){
 				foreach(GameObject o in GameObject.FindGameObjectsWithTag("Hero")){
 					if(o!= this.gameObject){
 						o.GetComponent<Hero>().Hide();

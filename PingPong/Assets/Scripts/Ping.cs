@@ -15,15 +15,14 @@ public class Ping : Photon.MonoBehaviour
 {
 
     [Tooltip("Distancia maxima do raio do pong inimigo")]
-    public float PongRadius,UnionRadius;
-    public bool PortalActive;
+    public float UnionRadius;
     public float PingCooldown = 1.5f;
     public float PingRate = 1f;
-    //public Material RayMat;
     public float PingDuration = 0.5f;
-	public AudioSource PingSound;
+	//public AudioSource PingSound;
+	//public GameObject H1Line;
 
-    private GameObject myLine;
+
     //private Vector3 _startPos;
     //private Vector3 _endPos;
 
@@ -31,7 +30,9 @@ public class Ping : Photon.MonoBehaviour
     public bool canPing = false;
     //List<GameObject> monsters;
     GameObject otherPlayer;
-	GameObject Monster1;
+
+	private GameObject m1;
+	private GameObject m2;
 
 	public bool Playable = false;
 
@@ -106,7 +107,7 @@ public class Ping : Photon.MonoBehaviour
 				otherPlayer = o;
 				//Debug.Log ("Player found" + "Position: " + otherPlayer.transform.position);
                 PhotonView v = PhotonView.Get(otherPlayer);
-                v.RPC("newReceivePing", PhotonTargets.Others,this.transform.position);
+                v.RPC("receiveping", PhotonTargets.Others,this.transform.position);
 				//otherPlayer.GetComponent<Ping>().newReceivePing(this.transform.position);
 			}
 			if (!otherPlayer) 
@@ -116,18 +117,12 @@ public class Ping : Photon.MonoBehaviour
 		}
 		foreach (GameObject o in GameObject.FindGameObjectsWithTag("Monster")) 
 		{
-			if(o!= this.gameObject)
-			{
-				Monster1 = o;
-				Debug.Log ("Monster found" + "Position: " + otherPlayer.transform.position);
-				Debug.Log("Monster Distance: " + Vector3.Distance(this.transform.position,otherPlayer.transform.position));
-			}
-			if (!Monster1) 
-			{
-				Debug.Log ("Monster1 not found");
-			}
+			PhotonView v = PhotonView.Get(o);
+            v.RPC("receiveping", PhotonTargets.Others,this.transform.position);
 		}
+		GetComponent<Pong>().GetPong ();
 	}
+    /*
     [PunRPC]
 	public void newReceivePing(Vector3 otherPlayerPos)
 	{
@@ -141,12 +136,38 @@ public class Ping : Photon.MonoBehaviour
 		lineRender.enabled = true;
 
 		//Setting the positions
-		lineRender.SetPosition (0, this.transform.position);
-		lineRender.SetPosition (1, otherPlayerPos  + new Vector3 (0,1,0) );
+		lineRender.SetPosition (0,  otherPlayerPos  + new Vector3 (0,1,0));
+		lineRender.SetPosition (1,this.transform.position);
 
 		StartCoroutine (DeleteRay());
 	}
-
+    */
+    /*
+	public void newGetPong()
+	{
+		Debug.Log ("Pong");
+		foreach (GameObject o in GameObject.FindGameObjectsWithTag("Monster")) 
+		{
+            if (m1 == null){
+                m1 = o;
+            }
+            else{
+                m2 = o;
+            }
+		}
+		if (Vector3.Distance (m1.transform.position, this.transform.position) < Vector3.Distance (m2.transform.position, this.transform.position)) 
+		{
+			H1Line.GetComponent<LineRenderer> ().SetPosition (0, m1.transform.position + Vector3.up);
+			H1Line.GetComponent<LineRenderer> ().SetPosition (1, this.transform.position + Vector3.up);
+		} 
+		else 
+		{
+			H1Line.GetComponent<LineRenderer> ().SetPosition (0, m2.transform.position + Vector3.up);
+			H1Line.GetComponent<LineRenderer> ().SetPosition (1, this.transform.position + Vector3.up);
+		}
+		
+	}
+    */
 	/*
     public void DeployPing()
     {
@@ -181,65 +202,11 @@ public class Ping : Photon.MonoBehaviour
 			PingSound.Play ();
 		}
 
-        GetPong();
+        newGetPong();
     }*/
-    /*
-    void GetPong()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, PongRadius);
-        float minDist = float.MaxValue;
-        GameObject nearMonter = null;
-        
-        foreach(Collider c in colliders)
-        {
-            if(c.gameObject.CompareTag("Monster"))
-            {
-                if(Vector3.Distance(transform.position, c.transform.position) < minDist)
-                {
-                    minDist = Vector3.Distance(transform.position, c.transform.position);
-                    nearMonter = c.gameObject;
-                }
-            }
-        }
-
-        if(nearMonter)
-        {
-            _startPos = transform.position;
-            _endPos = nearMonter.transform.position;
-
-            if (myLine)
-            {
-                Destroy(myLine);
-            }
-
-            myLine = new GameObject();
-            myLine.transform.position = _startPos;
-            myLine.AddComponent<LineRenderer>();
-            LineRenderer lr = myLine.GetComponent<LineRenderer>();
-            lr.material = RayMat;
-            lr.startColor = Color.white;
-            lr.endColor = Color.red;
-            lr.startWidth = 0.1f;
-            lr.endWidth = 0.1f;
-            lr.SetPosition(0, _startPos);
-            lr.SetPosition(1, _endPos);
-
-            StartCoroutine(DeleteRay());
-        }
-
-        if (PortalActive)
-        {
-            foreach (Collider c in colliders)
-            {
-                if (c.gameObject.CompareTag("Portal") && c.gameObject.GetComponent<Portal>().active)
-                {
-                    Debug.DrawLine(transform.position, c.gameObject.transform.position);
-                    break;
-                }
-            }
-        }
-    }
-    */
+    
+    
+    
     IEnumerator ResetPingCooldown()
     {
         canPing = false;
@@ -249,20 +216,12 @@ public class Ping : Photon.MonoBehaviour
 
     public IEnumerator PingSpawn()
     {
-        while(PortalActive)
+        while(GetComponent<Hero>().joined)
         {
             //DeployPing();
             yield return new WaitForSeconds(PingRate);
         }
     }
 
-    IEnumerator DeleteRay()
-    {
-        yield return new WaitForSeconds(PingDuration);
-        if (myLine)
-        {
-            //Destroy(myLine);
-			myLine.GetComponent<LineRenderer>().enabled = false;
-        }
-    }
+   
 }

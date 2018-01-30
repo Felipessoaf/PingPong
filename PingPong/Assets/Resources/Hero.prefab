@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a48a478995314459b01d49f4461cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joined: 0
 --- !u!114 &114622357338355798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,11 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41553172744a5b4b9d0b6ccb3baa1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
   Visual: {fileID: 0}
   Alive: 0
   Won: 0
-  joined: 0
 --- !u!114 &114634700404118002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,13 +236,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cba37e1ed874a41a0c170364bf01ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PongRadius: 0
+  PongRadius: 30
   UnionRadius: 15
   PortalActive: 0
   PingCooldown: 1.5
   PingRate: 1
+  RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
   PingDuration: 0.5
   PingSound: {fileID: 0}
+  H1Line: {fileID: 0}
   PingWaitTime: 2
   canPing: 0
   Playable: 1

@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Player : Photon.PunBehaviour {
 
-	public Camera mainCamera;
     public GameObject Visual;
     public bool Alive;
     public bool Won;
-	public bool joined;
     void Awake()
     {
 		if ( photonView.isMine)
@@ -18,7 +16,6 @@ public class Player : Photon.PunBehaviour {
             
 			mainCameraFollow.target = this.gameObject.transform;
 			mainCameraFOV.localPlayerTag = this.gameObject.tag;
-			joined = false;
 		}
 
     }
@@ -27,11 +24,10 @@ public class Player : Photon.PunBehaviour {
     void Join()
     {
 
-            joined = true;
 			if(transform.tag=="Hero"){
+				GetComponent<Hero>().joined = true;
 				GetComponent<Hero>().Show();
 			}
-            GetComponent<Ping>().PortalActive = true;
             StartCoroutine(GetComponent<Ping>().PingSpawn());
 			foreach(GameObject o in GameObject.FindGameObjectsWithTag("Monster")){
             	PhotonView v = PhotonView.Get(o);
