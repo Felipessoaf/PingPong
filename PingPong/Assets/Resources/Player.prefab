@@ -1457,7 +1457,6 @@ MonoBehaviour:
   PortalActive: 0
   PingCooldown: 1
   PingRate: 1
-  RayMat: {fileID: 0}
   PingDuration: 0.5
   PingSound: {fileID: 0}
   PingWaitTime: 2

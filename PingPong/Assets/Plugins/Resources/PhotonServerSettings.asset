@@ -41,4 +41,5 @@ MonoBehaviour:
   - ActivatePortal
   - end
   - PlayerDied
+  - newReceivePing
   DisableAutoOpenWizard: 1

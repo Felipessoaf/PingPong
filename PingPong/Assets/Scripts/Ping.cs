@@ -11,7 +11,7 @@ using UnityEngine.Networking;
 //}
 
 
-public class Ping : Photon.PunBehaviour
+public class Ping : Photon.MonoBehaviour
 {
 
     [Tooltip("Distancia maxima do raio do pong inimigo")]
@@ -19,13 +19,13 @@ public class Ping : Photon.PunBehaviour
     public bool PortalActive;
     public float PingCooldown = 1.5f;
     public float PingRate = 1f;
-    public Material RayMat;
+    //public Material RayMat;
     public float PingDuration = 0.5f;
 	public AudioSource PingSound;
 
     private GameObject myLine;
-    private Vector3 _startPos;
-    private Vector3 _endPos;
+    //private Vector3 _startPos;
+    //private Vector3 _endPos;
 
     public float PingWaitTime = 2f;
     public bool canPing = false;
@@ -74,13 +74,15 @@ public class Ping : Photon.PunBehaviour
 
 	public void newDeployPing()
 	{
-		foreach (GameObject o in GameObject.FindGameObjectsWithTag("Player")) 
+		foreach (GameObject o in GameObject.FindGameObjectsWithTag("Hero")) 
 		{
 			if(o!= this.gameObject)
 			{
 				otherPlayer = o;
 				//Debug.Log ("Player found" + "Position: " + otherPlayer.transform.position);
-				otherPlayer.GetComponent<Ping>().newReceivePing(this.transform.position);
+                PhotonView v = PhotonView.Get(otherPlayer);
+                v.RPC("newReceivePing", PhotonTargets.Others,this.transform.position);
+				//otherPlayer.GetComponent<Ping>().newReceivePing(this.transform.position);
 			}
 			if (!otherPlayer) 
 			{
@@ -101,6 +103,7 @@ public class Ping : Photon.PunBehaviour
 			}
 		}
 	}
+    [PunRPC]
 	public void newReceivePing(Vector3 otherPlayerPos)
 	{
 		Debug.Log ("Ping received and the Pos is: " + otherPlayerPos);
@@ -155,7 +158,7 @@ public class Ping : Photon.PunBehaviour
 
         GetPong();
     }*/
-
+    /*
     void GetPong()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, PongRadius);
@@ -211,7 +214,7 @@ public class Ping : Photon.PunBehaviour
             }
         }
     }
-
+    */
     IEnumerator ResetPingCooldown()
     {
         canPing = false;
