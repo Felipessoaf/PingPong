@@ -22,8 +22,10 @@ public class Ping : Photon.MonoBehaviour
     //public Material RayMat;
     public float PingDuration = 0.5f;
 	public AudioSource PingSound;
+	public GameObject H1Line;
 
     private GameObject myLine;
+
     //private Vector3 _startPos;
     //private Vector3 _endPos;
 
@@ -31,7 +33,9 @@ public class Ping : Photon.MonoBehaviour
     public bool canPing = false;
     //List<GameObject> monsters;
     GameObject otherPlayer;
-	GameObject Monster1;
+
+	private GameObject m1;
+	private GameObject m2;
 
 	public bool Playable = false;
 
@@ -88,12 +92,12 @@ public class Ping : Photon.MonoBehaviour
 			{
 				Debug.Log ("Other player not found");
 			}
-		}
+		}/*
 		foreach (GameObject o in GameObject.FindGameObjectsWithTag("Monster")) 
 		{
 			if(o!= this.gameObject)
 			{
-				Monster1 = o;
+				//Monster1 = o;
 				Debug.Log ("Monster found" + "Position: " + otherPlayer.transform.position);
 				Debug.Log("Monster Distance: " + Vector3.Distance(this.transform.position,otherPlayer.transform.position));
 			}
@@ -101,7 +105,8 @@ public class Ping : Photon.MonoBehaviour
 			{
 				Debug.Log ("Monster1 not found");
 			}
-		}
+		}*/
+		newGetPong ();
 	}
     [PunRPC]
 	public void newReceivePing(Vector3 otherPlayerPos)
@@ -116,12 +121,37 @@ public class Ping : Photon.MonoBehaviour
 		lineRender.enabled = true;
 
 		//Setting the positions
-		lineRender.SetPosition (0, this.transform.position);
-		lineRender.SetPosition (1, otherPlayerPos  + new Vector3 (0,1,0) );
+		lineRender.SetPosition (0,  otherPlayerPos  + new Vector3 (0,1,0));
+		lineRender.SetPosition (1,this.transform.position);
 
 		StartCoroutine (DeleteRay());
 	}
 
+	public void newGetPong()
+	{
+		Debug.Log ("Pong");
+		foreach (GameObject o in GameObject.FindGameObjectsWithTag("Monster")) 
+		{
+			if(o!= this.gameObject)
+			{
+				if (m1 == null)
+					m1 = o;
+				else
+					m2 = o;
+			}
+		}
+		if (Vector3.Distance (m1.transform.position, this.transform.position) < Vector3.Distance (m2.transform.position, this.transform.position)) 
+		{
+			H1Line.GetComponent<LineRenderer> ().SetPosition (0, m1.transform.position + Vector3.up);
+			H1Line.GetComponent<LineRenderer> ().SetPosition (1, this.transform.position + Vector3.up);
+		} 
+		else 
+		{
+			H1Line.GetComponent<LineRenderer> ().SetPosition (0, m2.transform.position + Vector3.up);
+			H1Line.GetComponent<LineRenderer> ().SetPosition (1, this.transform.position + Vector3.up);
+		}
+		
+	}
 	/*
     public void DeployPing()
     {
@@ -156,7 +186,7 @@ public class Ping : Photon.MonoBehaviour
 			PingSound.Play ();
 		}
 
-        GetPong();
+        newGetPong();
     }*/
     /*
     void GetPong()

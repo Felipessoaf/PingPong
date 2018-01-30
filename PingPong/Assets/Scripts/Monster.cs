@@ -9,6 +9,7 @@ public class Monster : Photon.MonoBehaviour {
 
     void Awake()
     {
+		/*
         if (photonView.isMine)
         {
             Player.LocalPlayerInstance = this.gameObject;
@@ -18,6 +19,7 @@ public class Monster : Photon.MonoBehaviour {
             mainCameraFollow.target = this.gameObject.transform;
             mainCameraFOV.localPlayerTag = this.gameObject.tag;
         }
+        */
         DontDestroyOnLoad(this.gameObject);
     }
 
