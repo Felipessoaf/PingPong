@@ -94,8 +94,8 @@ public class Movement : Photon.MonoBehaviour
 
             if (Frente && Tras)
             {
-                Frente.SetActive(false);
-                Tras.SetActive(true);
+                VisualActive(Frente, false);
+                VisualActive(Tras, true);
             }
         }
         else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
@@ -113,8 +113,8 @@ public class Movement : Photon.MonoBehaviour
 
             if (Frente && Tras)
             {
-                Frente.SetActive(true);
-                Tras.SetActive(false);
+                VisualActive(Frente, true);
+                VisualActive(Tras, false);
             }
         }
 
@@ -205,4 +205,16 @@ public class Movement : Photon.MonoBehaviour
 		//rb.velocity = playerVelocity * playerVelocityVector.normalized;
   //      rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 1.5f);
 	}
+
+    void VisualActive(GameObject go, bool active)
+    {
+        foreach(Transform c in go.transform)
+        {
+            SkinnedMeshRenderer sm = c.GetComponent<SkinnedMeshRenderer>();
+            if(sm)
+            {
+                sm.enabled = active;
+            }
+        }
+    }
 }

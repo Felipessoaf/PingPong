@@ -267,7 +267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1369706436941950
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +918,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369706436941950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.406179, y: 0.657, z: 305.45004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4822859296257364}
@@ -1926,7 +1926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.21178304
+  m_Length: 0.21178308
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4599351728558782}
   m_AttachedIK: {fileID: 0}
@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.22454923
+  m_Length: 0.22454925
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4957904218469614}
   m_AttachedIK: {fileID: 0}
@@ -2156,7 +2156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.21910639
+  m_Length: 0.21910638
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4387014693998724}
   m_AttachedIK: {fileID: 0}
@@ -2227,6 +2227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVelocity: 5
   playerVelocityVector: {x: 0, y: 0, z: 0}
+  Speed: 3
   Frente: {fileID: 1856067259263070}
   Tras: {fileID: 1292227140404922}
   Anim1: {fileID: 95884483771169130}
@@ -2319,7 +2320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.23088853
+  m_Length: 0.23088852
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4246084211347396}
   m_AttachedIK: {fileID: 0}
@@ -2371,7 +2372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.21000002
+  m_Length: 0.21000007
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4320845755598630}
   m_AttachedIK: {fileID: 0}
@@ -2520,7 +2521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.17853782
+  m_Length: 0.1785377
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4815542136587402}
   m_AttachedIK: {fileID: 0}
@@ -2601,7 +2602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.18000017
+  m_Length: 0.18000013
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4824433812070504}
   m_AttachedIK: {fileID: 0}
@@ -2617,7 +2618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.03999984
+  m_Length: 0.039999835
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4969649955409742}
   m_AttachedIK: {fileID: 0}
@@ -2660,7 +2661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.11861595
+  m_Length: 0.118615955
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4432780849785596}
   m_AttachedIK: {fileID: 0}
@@ -2714,7 +2715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.1200002
+  m_Length: 0.12000002
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4198895132453810}
   m_AttachedIK: {fileID: 0}
@@ -2772,7 +2773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.12000039
+  m_Length: 0.12000044
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4136947919377598}
   m_AttachedIK: {fileID: 0}
@@ -2829,7 +2830,7 @@ SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1756178874032010}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3074,7 +3075,7 @@ SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1107178205588380}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3123,7 +3124,7 @@ SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989214267728916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3221,7 +3222,7 @@ SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1630198422381142}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3270,7 +3271,7 @@ SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1948519755260006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3317,7 +3318,7 @@ SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1918288323800266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
