@@ -20,6 +20,7 @@ public class Player : Photon.PunBehaviour {
 
     }
 
+	//recebido por todos os heros em todas instancias 
 	[PunRPC]
     void Join()
     {
@@ -29,20 +30,16 @@ public class Player : Photon.PunBehaviour {
 				GetComponent<Hero>().Show();
 			}
             StartCoroutine(GetComponent<Ping>().PingSpawn());
-			foreach(GameObject o in GameObject.FindGameObjectsWithTag("Monster")){
-            	PhotonView v = PhotonView.Get(o);
-            	v.RPC("end", PhotonTargets.All);
-        	}
-			foreach(GameObject o in GameObject.FindGameObjectsWithTag("Hero")){
-            	PhotonView v = PhotonView.Get(o);
-            	v.RPC("end", PhotonTargets.All);
-        	}
+
 
     }
 	[PunRPC]
     void end(PhotonMessageInfo info)
     {
-		if(PhotonNetwork.inRoom)PhotonNetwork.LeaveRoom();
+		if(PhotonNetwork.isMasterClient){
+			PhotonNetwork.LoadLevel("init");
+		}
+		
 	}
 
 

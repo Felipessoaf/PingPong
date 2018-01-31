@@ -23,6 +23,10 @@ public class Launcher : Photon.PunBehaviour
             if (!PhotonNetwork.connected) {
                 status.text = "Connect";
             }
+            if (PhotonNetwork.connected && PhotonNetwork.inRoom)
+            {
+                PhotonNetwork.LeaveRoom();  
+            }
             Connect();
         }
 

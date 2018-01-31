@@ -1452,12 +1452,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cba37e1ed874a41a0c170364bf01ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PongRadius: 3
   UnionRadius: 0
-  PortalActive: 0
   PingCooldown: 1
   PingRate: 1
-  RayMat: {fileID: 0}
   PingDuration: 0.5
   PingWaitTime: 2
   canPing: 0

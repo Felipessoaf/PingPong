@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 114779973024759338}
   - component: {fileID: 114622357338355798}
   - component: {fileID: 114520608362171904}
+  - component: {fileID: 114802631358499058}
+  - component: {fileID: 114977175257804092}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -236,18 +238,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cba37e1ed874a41a0c170364bf01ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PongRadius: 30
   UnionRadius: 15
-  PortalActive: 0
   PingCooldown: 1.5
   PingRate: 1
-  RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
   PingDuration: 0.5
-  PingSound: {fileID: 0}
-  H1Line: {fileID: 0}
   PingWaitTime: 2
   canPing: 0
   Playable: 1
+--- !u!114 &114802631358499058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436302516818272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888cf6ab593bcf940a361b6723614280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
+  PingDuration: 0.5
 --- !u!114 &114889328834537472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -277,3 +287,17 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &114977175257804092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436302516818272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51560aa0849cf54a952e21660db1823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PongRadius: 0
+  PongDuration: 0
+  RayMat: {fileID: 0}
