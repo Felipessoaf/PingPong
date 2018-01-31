@@ -80,7 +80,8 @@ public class Ping : Photon.MonoBehaviour
         {
             if (c.gameObject.CompareTag("Hero") && !c.GetComponent<Ping>().canPing)
             {
-                //GetComponent<Player>().JoinLocal();
+                /* termina fase I  */
+                /*
                 this.photonView.RPC("Join", PhotonTargets.All);
 
                 foreach (GameObject o in GameObject.FindGameObjectsWithTag("Hero")) 
@@ -92,6 +93,19 @@ public class Ping : Photon.MonoBehaviour
                         PhotonView.Get(otherPlayer).RPC("Join", PhotonTargets.All);
                     }
                 }
+                */
+                /* termina fase II  */
+                foreach(GameObject o in GameObject.FindGameObjectsWithTag("Monster")){
+                    PhotonView v = PhotonView.Get(o);
+                    v.RPC("end", PhotonTargets.All);
+                }
+                foreach(GameObject o in GameObject.FindGameObjectsWithTag("Hero")){
+                    PhotonView v = PhotonView.Get(o);
+                    v.RPC("end", PhotonTargets.All);
+                }
+
+
+
                 //Game.instance.SelectPortal();
                 //PhotonView v = PhotonView.Get(otherPlayer);
                 //v.RPC("Join", PhotonTargets.All);
