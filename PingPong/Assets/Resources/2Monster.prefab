@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 114809449422946254}
   - component: {fileID: 54942272493721934}
   - component: {fileID: 114567510299547594}
+  - component: {fileID: 114396302570376000}
+  - component: {fileID: 114688834404583582}
   m_Layer: 0
   m_Name: 2Monster
   m_TagString: Monster
@@ -114,6 +116,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114396302570376000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873982013553890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41553172744a5b4b9d0b6ccb3baa1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Visual: {fileID: 0}
+  Alive: 0
+  Won: 0
 --- !u!114 &114567510299547594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +147,19 @@ MonoBehaviour:
   Tras: {fileID: 0}
   Anim1: {fileID: 0}
   Anim2: {fileID: 0}
+--- !u!114 &114688834404583582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873982013553890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 888cf6ab593bcf940a361b6723614280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
+  PingDuration: 0.5
 --- !u!114 &114809449422946254
 MonoBehaviour:
   m_ObjectHideFlags: 1

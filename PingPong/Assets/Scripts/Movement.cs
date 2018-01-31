@@ -27,10 +27,11 @@ public class Movement : Photon.MonoBehaviour
 	
 	void Update()
 	{
-        //if (photonView.isMine == false && PhotonNetwork.connected == true)
-        //{
-        //	return;
-        //}
+        if (photonView.isMine == false && PhotonNetwork.connected == true)
+        {
+            return;
+        }
+
         vel = new Vector3(0, rb.velocity.y, 0);
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
