@@ -1713,6 +1713,8 @@ MonoBehaviour:
   PingCooldown: 1.5
   PingRate: 1
   PingDuration: 0.5
+  Anim1: {fileID: 95752900248795286}
+  Anim2: {fileID: 95742160157622660}
   PingWaitTime: 2
   canPing: 0
   Playable: 1

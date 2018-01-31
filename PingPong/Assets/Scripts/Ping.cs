@@ -19,8 +19,10 @@ public class Ping : Photon.MonoBehaviour
     public float PingCooldown = 1.5f;
     public float PingRate = 1f;
     public float PingDuration = 0.5f;
-	//public AudioSource PingSound;
-	//public GameObject H1Line;
+    public Animator Anim1;
+    public Animator Anim2;
+    //public AudioSource PingSound;
+    //public GameObject H1Line;
 
 
     //private Vector3 _startPos;
@@ -67,7 +69,7 @@ public class Ping : Photon.MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.Space) && canPing && Playable)
         {
-			Debug.Log ("Trying to ping here");
+
             newDeployPing();
             StartCoroutine(ResetPingCooldown());
         }
@@ -75,6 +77,15 @@ public class Ping : Photon.MonoBehaviour
 
 	public void newDeployPing()
 	{
+        if (Anim1)
+        {
+            Anim1.SetTrigger("ping");
+        }
+        if (Anim2)
+        {
+            Anim2.SetTrigger("ping");
+        }
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, UnionRadius);
         foreach (Collider c in colliders)
         {
