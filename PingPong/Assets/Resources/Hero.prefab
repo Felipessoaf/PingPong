@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVelocity: 2
   playerVelocityVector: {x: 0, y: 0, z: 0}
+  Speed: 2
   Frente: {fileID: 0}
   Tras: {fileID: 0}
   Anim1: {fileID: 0}

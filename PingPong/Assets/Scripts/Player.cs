@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Player : Photon.PunBehaviour {
 
-    public GameObject Visual;
-    public bool Alive;
-    public bool Won;
-    void Awake()
+	    void Awake()
     {
 		if ( photonView.isMine)
 		{
