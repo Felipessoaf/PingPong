@@ -6,10 +6,6 @@ using UnityEngine.Networking;
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : Photon.MonoBehaviour 
 {
-	[Range(1.0f,50f)]
-	public float playerVelocity = 10f;
-    public Vector3 playerVelocityVector;
-
     public float Speed;
 
     public GameObject Frente;
@@ -141,70 +137,7 @@ public class Movement : Photon.MonoBehaviour
                 Anim2.SetBool("moving", true);
             }
         }
-        /*
-		if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-		{
-		    playerVelocityVector.x = Input.GetAxis("Horizontal");
-		    playerVelocityVector.z = Input.GetAxis("Vertical");
-
-            if (playerVelocityVector.z <= 0)
-            {
-                if(Frente && Tras)
-                {
-                    Frente.SetActive(true);
-                    Tras.SetActive(false);
-                }
-            }
-            else
-            {
-                if (Frente && Tras)
-                {
-                    Frente.SetActive(false);
-                    Tras.SetActive(true);
-                }
-            }
-
-            if (Anim1 && Anim2)
-            {
-                Anim1.SetBool("moving", true);
-                Anim2.SetBool("moving", true);
-                if(playerVelocityVector.x < 0)
-                {
-                    Anim1.SetBool("left", true);
-                    Anim2.SetBool("left", true);
-                }
-                else
-                {
-                    Anim1.SetBool("left", false);
-                    Anim2.SetBool("left", false);
-                }
-                if (playerVelocityVector.z == 0)
-                {
-                    Anim1.SetBool("lado", true);
-                    Anim2.SetBool("lado", true);
-                }
-                else
-                {
-                    Anim1.SetBool("lado", false);
-                    Anim2.SetBool("lado", false);
-                }
-            }
-        }
-		else
-		{
-			playerVelocityVector = Vector3.zero;
-            if (Anim1 && Anim2)
-            {
-                Anim1.SetBool("moving", false);
-                Anim2.SetBool("moving", false);
-            }
-        }*/
     }
-	void FixedUpdate () 
-	{		
-		//rb.velocity = playerVelocity * playerVelocityVector.normalized;
-  //      rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 1.5f);
-	}
 
     void VisualActive(GameObject go, bool active)
     {
