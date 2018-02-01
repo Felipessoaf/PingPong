@@ -22,12 +22,12 @@ public class Game : Photon.MonoBehaviour {
 		string character =  PlayerPrefs.GetString("character");
         if(character=="monster1"){
             //instancia em todo mundo
-            Vector3 pos = spawnpointsenemy[2].position;
+            Vector3 pos = spawnpointsenemy[0].position;
 			PhotonNetwork.Instantiate(this.monster.name, pos,monster.transform.rotation, 0);
 		}
         if(character=="monster2"){
             //instancia em todo mundo
-            Vector3 pos = spawnpointsenemy[2].position;
+            Vector3 pos = spawnpointsenemy[1].position;
 			PhotonNetwork.Instantiate(this.monster.name, pos,monster.transform.rotation, 0);
 		}
         if(character=="manhero"){
