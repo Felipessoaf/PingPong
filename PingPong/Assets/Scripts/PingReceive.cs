@@ -6,7 +6,7 @@ public class PingReceive : Photon.PunBehaviour
 {
     public Material RayMat;
     public float PingDuration = 0.5f;
-
+    public GameObject particle;
     private GameObject myLine;
     private Vector3 _startPos;
     private Vector3 _endPos;
@@ -38,6 +38,9 @@ public class PingReceive : Photon.PunBehaviour
     {
         _startPos = transform.position;
         _endPos = t;
+        //GameObject p = Instantiate(particle);
+        //p.transform.position = _startPos;
+        //p.transform.LookAt(_endPos);
 
         if (myLine)
         {

@@ -2485,6 +2485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
   PingDuration: 0.5
+  particle: {fileID: 198973474701035812, guid: fd76eba9a7f8a9a4c8d8556eb1dbf5c2, type: 2}
 --- !u!114 &114777059089812060
 MonoBehaviour:
   m_ObjectHideFlags: 1

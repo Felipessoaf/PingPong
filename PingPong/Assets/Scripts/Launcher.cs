@@ -46,7 +46,7 @@ public class Launcher : Photon.PunBehaviour
 
     void Join(){
         //PlayerPrefs.SetString("type",(Random.Range(0,2)==1?true:false).ToString());
-        //PlayerPrefs.SetString("character",toggle.isOn?"monster":"manhero");
+        PlayerPrefs.SetString("character",toggle.isOn?"monster":"manhero");
         if(nameR.text == "") nameR.text = "devRoom";
         PhotonNetwork.JoinOrCreateRoom(nameR.text, new RoomOptions() { MaxPlayers = 4 }, null);
     }
