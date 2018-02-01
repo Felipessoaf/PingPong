@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game : Photon.MonoBehaviour {
 	public static Game instance;
-	public GameObject player;
+	public GameObject hero,monster;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,8 +17,12 @@ public class Game : Photon.MonoBehaviour {
 		begin();
 	}
 	public void begin(){
-
-		PhotonNetwork.Instantiate(this.player.name, player.transform.position,player.transform.rotation, 0);
+		if(PhotonNetwork.room.PlayerCount>=2){
+			PhotonNetwork.Instantiate(this.monster.name, monster.transform.position,monster.transform.rotation, 0);
+		}
+		else{
+			PhotonNetwork.Instantiate(this.hero.name, hero.transform.position,hero.transform.rotation, 0);
+		}
 		
 
 	}

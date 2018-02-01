@@ -54,7 +54,7 @@ public class Launcher : Photon.PunBehaviour
         {
 			connecting = false;
             if (!PhotonNetwork.connected)status.text = "Connect";
-            //Connect();
+            Connect();
 			//PhotonNetwork.JoinLobby ();
 
         }

@@ -723,4 +723,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48585ad36fa06e84a95cdbb9cd11d901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1216961505612702, guid: 1632e6345599e0244989d15fc369456c, type: 2}
+  hero: {fileID: 1216961505612702, guid: 1632e6345599e0244989d15fc369456c, type: 2}
+  monster: {fileID: 1238539156819362, guid: ad387639eac3c464eaf56ec52be77126, type: 2}
