@@ -1455,6 +1455,8 @@ MonoBehaviour:
   PingCooldown: 1
   PingRate: 1
   PingDuration: 0.5
+  Anim1: {fileID: 0}
+  Anim2: {fileID: 0}
   PingWaitTime: 2
   canPing: 0
   Playable: 1

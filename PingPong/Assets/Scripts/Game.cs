@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game : Photon.MonoBehaviour {
 	public static Game instance;
-	public GameObject hero,monster;
+	public GameObject manhero,womanhero,monster;
     public Transform[] spawnpoints,spawnpointsenemy;
     //private List<GameObject> portals;
 	void Start () {
@@ -25,10 +25,17 @@ public class Game : Photon.MonoBehaviour {
             Vector3 pos = spawnpointsenemy[PhotonNetwork.playerList.Length-1].position;
 			PhotonNetwork.Instantiate(this.monster.name, pos,monster.transform.rotation, 0);
 		}
-        if(character=="hero"){
+        if(character=="manhero"){
             //instancia em todo mundo
             Vector3 pos = spawnpoints[PhotonNetwork.playerList.Length-1].position;
-			PhotonNetwork.Instantiate(this.hero.name, pos,hero.transform.rotation, 0);            
+			PhotonNetwork.Instantiate(this.manhero.name, pos,manhero.transform.rotation, 0);            
+			//if(ch==1) PhotonNetwork.Instantiate(this.woman.name, woman.transform.position,woman.transform.rotation, 0);
+			//if(ch==2) PhotonNetwork.Instantiate(this.man.name, man.transform.position,man.transform.rotation, 0);
+		}
+        if(character=="womanhero"){
+            //instancia em todo mundo
+            Vector3 pos = spawnpoints[PhotonNetwork.playerList.Length-1].position;
+			PhotonNetwork.Instantiate(this.womanhero.name, pos,womanhero.transform.rotation, 0);            
 			//if(ch==1) PhotonNetwork.Instantiate(this.woman.name, woman.transform.position,woman.transform.rotation, 0);
 			//if(ch==2) PhotonNetwork.Instantiate(this.man.name, man.transform.position,man.transform.rotation, 0);
 		}
