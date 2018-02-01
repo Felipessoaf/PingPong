@@ -39,8 +39,11 @@ public class Lobby : Photon.PunBehaviour {
 		if(PhotonNetwork.room.PlayerCount==2){
 			PlayerPrefs.SetString("character","womanhero");
 		}
-		else{
-			PlayerPrefs.SetString("character","monster");	
+		if(PhotonNetwork.room.PlayerCount==3){
+			PlayerPrefs.SetString("character","monster1");	
+		}
+		if(PhotonNetwork.room.PlayerCount==4){
+			PlayerPrefs.SetString("character","monster2");	
 		}
 		photonView.RPC("activate", PhotonTargets.Others,PhotonNetwork.room.PlayerCount-1);
 		for(int i=0;i<PhotonNetwork.room.PlayerCount-1;i++){
