@@ -16,7 +16,7 @@ public class Kill : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Die>().Death();
-            bool player1 = false;
+            bool player1 = (collision.gameObject.name == "Hero") ? true:false ;
             if (move.Anim1)
             {
                 move.VisualActive(move.Frente, true);
