@@ -6,7 +6,6 @@ public class CameraFollow : MonoBehaviour {
 	[Header("This should be the Local Player")]
 	public Transform target;
 	public float smoothSpeed = 0.125f;
-
 	public Vector3 offset;
 
 	void Awake()
