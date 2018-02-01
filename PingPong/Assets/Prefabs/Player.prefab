@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b647ecfb620a66549bfbf4c82e098bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerVelocity: 1
+  playerVelocity: 10
   playerVelocityVector: {x: 0, y: 0, z: 0}
 --- !u!114 &114502420319702240
 MonoBehaviour:
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41553172744a5b4b9d0b6ccb3baa1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
 --- !u!114 &114664565311585082
 MonoBehaviour:
   m_ObjectHideFlags: 1

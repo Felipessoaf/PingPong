@@ -6,11 +6,13 @@ using UnityEngine.Networking;
 public class Player : NetworkBehaviour {
 
 	int id;
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+	public Camera mainCamera;
+	void Start () 
+	{
+		if(isLocalPlayer)
+			//mainCamera.GetComponent<CameraFollow>().target = this.gameObject.transform;
+			Camera.main.GetComponent<CameraFollow>().target = this.gameObject.transform;
+	}	
 	void Update () {
 		if (!isLocalPlayer) return;
 	}
