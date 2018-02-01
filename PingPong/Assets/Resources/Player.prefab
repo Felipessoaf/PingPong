@@ -1305,7 +1305,6 @@ MonoBehaviour:
   PortalActive: 0
   PingCooldown: 0.1
   PingRate: 1
-  pinging: 0
 --- !u!114 &114560100448211978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1596,10 +1595,9 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114892272047488784}
   - {fileID: 114560100448211978}
-  - {fileID: 114421195729497518}
   - {fileID: 114502420319702240}
+  - {fileID: 114357232935377646}
   - {fileID: 114652220928944624}
-  - {fileID: 114625090117755454}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 1
   instantiationId: 1

@@ -12,29 +12,15 @@ public class PingReceive : Photon.PunBehaviour
     private Vector3 _endPos;
 
     [PunRPC]
-    void receiveping(PhotonMessageInfo info)
+    void receiveping(Vector3 pos, PhotonMessageInfo info)
     {
-        GameObject otherPlayer = null;
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            if (go != gameObject)
-            {
-                otherPlayer = go;
-            }
-        }
-        DrawPing(otherPlayer.transform);
+        DrawPing(pos);
     }
 
-    public void DrawPing(Transform t)
+    public void DrawPing(Vector3 t)
     {
-        if (t.gameObject == gameObject)
-        {
-            Debug.Log("Mesmo player");
-            //return;
-        }
-
         _startPos = transform.position;
-        _endPos = t.position;
+        _endPos = t;
 
         if (myLine)
         {
@@ -53,8 +39,8 @@ public class PingReceive : Photon.PunBehaviour
         lr.SetPosition(0, _startPos);
         lr.SetPosition(1, _endPos);
 
-        Debug.DrawLine(transform.position, t.position);
-        Debug.Log("Transform: " + t.position);
+        Debug.DrawLine(transform.position, t);
+        Debug.Log("Transform: " + t);
 
         StartCoroutine(DeleteRay());
     }
