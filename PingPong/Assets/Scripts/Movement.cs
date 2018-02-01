@@ -139,7 +139,7 @@ public class Movement : Photon.MonoBehaviour
         }
     }
 
-    void VisualActive(GameObject go, bool active)
+    public void VisualActive(GameObject go, bool active)
     {
         foreach(Transform c in go.transform)
         {
@@ -147,6 +147,16 @@ public class Movement : Photon.MonoBehaviour
             if(sm)
             {
                 sm.enabled = active;
+            }
+            SpriteRenderer sr = c.GetComponent<SpriteRenderer>();
+            if (sr)
+            {
+                sr.enabled = active;
+            }
+            MeshRenderer mr = c.GetComponent<MeshRenderer>();
+            if (mr)
+            {
+                mr.enabled = active;
             }
         }
     }

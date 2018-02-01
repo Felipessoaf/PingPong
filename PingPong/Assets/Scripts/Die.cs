@@ -19,13 +19,14 @@ public class Die : Photon.MonoBehaviour
     {
         if(Anim)
         {
-            Anim.SetTrigger("Death");
+            Anim.SetTrigger("death");
         }
         else
         {
             Debug.LogWarning("Animator not set - Die.cs");
         }
         photonView.RPC("PlayerDied", PhotonTargets.All);
+        gameObject.SetActive(false);
     }
     [PunRPC]
     public void PlayerDied()
