@@ -19,34 +19,36 @@ using cakeslice;
 	}	
 	void FixedUpdate () 
 	{
-		RaycastHit hitInfo;
-		bool hit = Physics.Raycast(transform.position,target.position - transform.position,out hitInfo,Mathf.Infinity,LayerMask.NameToLayer("Grama"));
-		Debug.DrawRay(transform.position,target.position - transform.position,Color.green,0.5f);
-		if(hit)
-		{
-			//Debug.Log(hitInfo.collider.gameObject.name);
-			//if(hitInfo.collider.transform.GetChild(1).GetComponent<MeshRenderer>())
-			if(hitInfo.collider.GetComponent<Collider>() && hitInfo.collider.tag != "Player" && hitInfo.collider.tag != "Grama")
+		if(target){
+			RaycastHit hitInfo;
+			bool hit = Physics.Raycast(transform.position,target.position - transform.position,out hitInfo,Mathf.Infinity,LayerMask.NameToLayer("Grama"));
+			//Debug.DrawRay(transform.position,target.position - transform.position,Color.green,0.5f);
+			if(hit)
 			{
-				Debug.Log(hitInfo.collider.name);
-				GetComponent<OutlineEffect>().lineThickness = 1.25f;
-				GetComponent<OutlineEffect>().lineIntensity = 0.6f;
-			}	
-			else
-			{
-				//Debug.Log("Effect out");
-				GetComponent<OutlineEffect>().lineIntensity = 0f;
-				GetComponent<OutlineEffect>().lineThickness = 0f;
+				//Debug.Log(hitInfo.collider.gameObject.name);
+				//if(hitInfo.collider.transform.GetChild(1).GetComponent<MeshRenderer>())
+				if(hitInfo.collider.GetComponent<Collider>() && hitInfo.collider.tag != "Hero" && hitInfo.collider.tag != "Monster" && hitInfo.collider.tag != "Grama")
+				{
+					//Debug.Log(hitInfo.collider.name);
+					GetComponent<OutlineEffect>().lineThickness = 1.25f;
+					GetComponent<OutlineEffect>().lineIntensity = 0.6f;
+				}	
+				else
+				{
+					//Debug.Log("Effect out");
+					GetComponent<OutlineEffect>().lineIntensity = 0f;
+					GetComponent<OutlineEffect>().lineThickness = 0f;
+				}		
 			}		
-		}		
 
-		if(target)	
-		{
-			Vector3 desiredPosition = target.position + offset;
-			Vector3 smoothedPosition = Vector3.Lerp(transform.position,desiredPosition,smoothSpeed);
-			transform.position = smoothedPosition;
-			transform.rotation = Quaternion.Euler(30,0,0);
-			//transform.LookAt(target);
+			if(target)	
+			{
+				Vector3 desiredPosition = target.position + offset;
+				Vector3 smoothedPosition = Vector3.Lerp(transform.position,desiredPosition,smoothSpeed);
+				transform.position = smoothedPosition;
+				transform.rotation = Quaternion.Euler(30,0,0);
+				//transform.LookAt(target);
+			}
 		}
 	}
 	}

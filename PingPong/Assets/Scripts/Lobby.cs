@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class Lobby : Photon.PunBehaviour {
 	//public int id;
-	public Text num,title;
-	public Toggle toggle;
+	public Text num,title,role;
+	public Image[] imgs;
+	//public Toggle toggle;
 	/*
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -22,12 +23,31 @@ public class Lobby : Photon.PunBehaviour {
             //Debug.Log(canPing);
         }
     }*/
+	[PunRPC]
+	void activate(int i){
+		imgs[PhotonNetwork.room.PlayerCount-1].color = Color.white;
+	}
 	void Start () {
 
 		//if(id!=PhotonNetwork.player.ID) toggle.interactable = false;
 		title.text = PhotonNetwork.room.Name;
 		//if(PhotonNetwork.room.PlayerCount>2){
-			PlayerPrefs.SetInt("character",PhotonNetwork.room.PlayerCount);
+		//PlayerPrefs.SetInt("character",PhotonNetwork.room.PlayerCount);
+		if(PhotonNetwork.room.PlayerCount==1){
+			PlayerPrefs.SetString("character","manhero");
+		}
+		if(PhotonNetwork.room.PlayerCount==2){
+			PlayerPrefs.SetString("character","womanhero");
+		}
+		else{
+			PlayerPrefs.SetString("character","monster");	
+		}
+		photonView.RPC("activate", PhotonTargets.Others,PhotonNetwork.room.PlayerCount-1);
+		for(int i=0;i<PhotonNetwork.room.PlayerCount-1;i++){
+			imgs[i].color = Color.white;
+		}
+		imgs[PhotonNetwork.room.PlayerCount-1].color = Color.yellow;
+
 			//photonView.group = 1;
 		//}
 		//else{
@@ -38,11 +58,11 @@ public class Lobby : Photon.PunBehaviour {
 	
 	void Update()
 	{
-		num.text = PhotonNetwork.room.PlayerCount.ToString();
+		num.text = PhotonNetwork.room.PlayerCount.ToString()+"/4";
 		
 		if(PhotonNetwork.room.PlayerCount==4){
 			//se todo mundo estiver ready
-			PhotonNetwork.LoadLevel("main");
+			PhotonNetwork.LoadLevel("NetworkMVP");
 
 		}
 	}
@@ -50,7 +70,7 @@ public class Lobby : Photon.PunBehaviour {
 
 		if(PhotonNetwork.room.PlayerCount==4){
 			//se todo mundo estiver ready
-			PhotonNetwork.LoadLevel("main");
+			PhotonNetwork.LoadLevel("NetworkMVP");
 
 		}
 	}
