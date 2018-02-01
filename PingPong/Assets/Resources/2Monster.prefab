@@ -60,7 +60,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1167449430161388
 GameObject:
   m_ObjectHideFlags: 1
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 114567510299547594}
   - component: {fileID: 114396302570376000}
   - component: {fileID: 114688834404583582}
-  - component: {fileID: 114092790674141788}
+  - component: {fileID: 114981781539850810}
   m_Layer: 0
   m_Name: 2Monster
   m_TagString: Monster
@@ -651,7 +651,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873982013553890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.897, y: 1, z: 0}
+  m_LocalPosition: {x: -1.812, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4215662700712242}
@@ -1293,18 +1293,6 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
---- !u!114 &114092790674141788
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1873982013553890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4debfe76c7d1c1e459f1c9f3c2b72882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Anim: {fileID: 0}
 --- !u!114 &114110023499979080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1478,7 +1466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.50868815
+  m_Length: 0.5086882
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4607829418383336}
   m_AttachedIK: {fileID: 0}
@@ -1796,6 +1784,17 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114981781539850810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873982013553890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa42422271095843aa4fa7ea4a4383f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137214087032082532
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
