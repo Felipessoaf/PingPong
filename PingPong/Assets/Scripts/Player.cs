@@ -9,9 +9,15 @@ public class Player : NetworkBehaviour {
 	public Camera mainCamera;
 	void Start () 
 	{
+		if (!isLocalPlayer)
+		{
+             GetComponent<MeshRenderer>().enabled = false;
+             GetComponent<Collider>().enabled = false;
+		}
 		if(isLocalPlayer)
-			//mainCamera.GetComponent<CameraFollow>().target = this.gameObject.transform;
+		{
 			Camera.main.GetComponent<CameraFollow>().target = this.gameObject.transform;
+		}
 	}	
 	void Update () {
 		if (!isLocalPlayer) return;
