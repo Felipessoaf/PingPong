@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : Photon.PunBehaviour {
 
-	    void Awake()
+	void Awake()
     {
 		if ( photonView.isMine)
 		{
@@ -14,30 +14,26 @@ public class Player : Photon.PunBehaviour {
 			mainCameraFollow.target = this.gameObject.transform;
 			mainCameraFOV.localPlayerTag = this.gameObject.tag;
 		}
-
     }
 
 	//recebido por todos os heros em todas instancias 
 	[PunRPC]
     void Join()
     {
-
-			if(transform.tag=="Hero"){
-				GetComponent<Hero>().joined = true;
-				GetComponent<Hero>().Show();
-			}
-            StartCoroutine(GetComponent<Ping>().PingSpawn());
-
-
+		if(transform.tag=="Hero")
+        {
+			GetComponent<Hero>().joined = true;
+			GetComponent<Hero>().Show();
+		}
+        StartCoroutine(GetComponent<Ping>().PingSpawn());
     }
+
 	[PunRPC]
     void end(PhotonMessageInfo info)
     {
-		if(PhotonNetwork.isMasterClient){
+		if(PhotonNetwork.isMasterClient)
+        {
 			PhotonNetwork.LoadLevel("init");
 		}
-		
 	}
-
-
 }
