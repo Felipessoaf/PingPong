@@ -9,7 +9,11 @@ public class Ping : NetworkBehaviour
     [Tooltip("Distancia maxima do raio do pong inimigo")]
     public float PongRadius;
     public bool PortalActive;
-    public Material Mat;
+    public Material RayMat;
+    public float PingDuration = 0.5f;
+    public float PingCooldown = 1.5f;
+
+    private bool canPing = false;
 
     private GameObject myLine;
     private Vector3 _startPos;
@@ -17,13 +21,20 @@ public class Ping : NetworkBehaviour
     private Vector2 _diff;
     private float _dist;
 
+    private void Start()
+    {
+        DeployPing();
+        StartCoroutine(ResetPingCooldown());
+    }
+
     private void Update()
     {
         if (!isLocalPlayer) return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canPing)
         {
             DeployPing();
+            StartCoroutine(ResetPingCooldown());
         }
     }
 
@@ -60,7 +71,7 @@ public class Ping : NetworkBehaviour
         myLine.transform.position = _startPos;
         myLine.AddComponent<LineRenderer>();
         LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        lr.material = Mat;
+        lr.material = RayMat;
         lr.startColor = Color.black;
         lr.endColor = Color.black;
         lr.startWidth = 0.1f;
@@ -111,10 +122,17 @@ public class Ping : NetworkBehaviour
 
     IEnumerator DeleteRay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(PingDuration);
         if (myLine)
         {
             Destroy(myLine);
         }
+    }
+
+    IEnumerator ResetPingCooldown()
+    {
+        canPing = false;
+        yield return new WaitForSeconds(PingCooldown);
+        canPing = true;
     }
 }
