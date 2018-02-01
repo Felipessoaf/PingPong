@@ -2631,7 +2631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51560aa0849cf54a952e21660db1823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PongRadius: 10
+  PongRadius: 30
   PongDuration: 1
   RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
 --- !u!114 &114992458596516672
