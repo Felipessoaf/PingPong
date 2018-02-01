@@ -25,9 +25,25 @@ public class Die : Photon.MonoBehaviour
         {
             Debug.LogWarning("Animator not set - Die.cs");
         }
-        photonView.RPC("PlayerDied", PhotonTargets.All);
+        //photonView.RPC("PlayerDied", PhotonTargets.All);
+
+        //bool lastAlive = true;
+        //foreach(GameObject go in GameObject.FindGameObjectsWithTag("Hero"))
+        //{
+        //    if(go != gameObject)
+        //    {
+        //        lastAlive = false;
+        //    }
+        //}
+
+        //if(lastAlive)
+        //{
+
+        //}
+
         gameObject.SetActive(false);
     }
+
     [PunRPC]
     public void PlayerDied()
     {

@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 320800050573419820}
   - component: {fileID: 212483483181941334}
   - component: {fileID: 95608188957846790}
+  - component: {fileID: 114644012331714824}
   m_Layer: 5
   m_Name: monstro
   m_TagString: Untagged
@@ -1592,6 +1593,17 @@ MonoBehaviour:
   m_Bones: []
   m_BoneTransforms:
   - {fileID: 4294143867855636}
+--- !u!114 &114644012331714824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475494620674198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea26f44b19039d4485dce78bb884d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114650217212566026
 MonoBehaviour:
   m_ObjectHideFlags: 1

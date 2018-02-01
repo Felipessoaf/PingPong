@@ -13,7 +13,7 @@ public class Kill : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Hero"))
         {
             collision.gameObject.GetComponent<Die>().Death();
             bool player1 = (collision.gameObject.name == "Hero") ? true:false ;
