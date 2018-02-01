@@ -42,4 +42,5 @@ MonoBehaviour:
   - end
   - PlayerDied
   - newReceivePing
+  - activate
   DisableAutoOpenWizard: 1
