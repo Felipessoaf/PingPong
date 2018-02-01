@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+//using UnityEngine.Networking.NetworkSystem;
+//using System.Runtime.InteropServices;
+
+//public class MyMessage : MessageBase
+//{
+//    public NetworkInstanceId netId;
+//}
 
 public class Ping : NetworkBehaviour
 {
@@ -12,19 +19,89 @@ public class Ping : NetworkBehaviour
     public Material RayMat;
     public float PingDuration = 0.5f;
     public float PingCooldown = 1.5f;
+    public float PingRate = 1f;
 
     private bool canPing = false;
 
     private GameObject myLine;
     private Vector3 _startPos;
     private Vector3 _endPos;
-    private Vector2 _diff;
-    private float _dist;
+
+    private short MyMsgId = 1000;
+    
+    //NetworkClient myClient;
+
+    //public class MyMsgType
+    //{
+    //    public static short Score = MsgType.Highest + 1;
+    //};
+
+    //public class ScoreMessage : MessageBase
+    //{
+    //    public NetworkInstanceId netId;
+    //}
+
+    //[Command]
+    //public void CmdSendScore(NetworkInstanceId id)
+    //{
+    //    ScoreMessage msg = new ScoreMessage();
+    //    msg.netId = id;
+
+    //    NetworkServer.SendToAll(MyMsgType.Score, msg);
+    //}
+
+    //// Create a client and connect to the server port
+    //public void SetupClient()
+    //{
+    //    myClient = new NetworkClient();
+    //    myClient.RegisterHandler(MsgType.Connect, OnConnected);
+    //    myClient.RegisterHandler(MyMsgType.Score, OnScore);
+    //    myClient.Connect("127.0.0.1", 7777);
+    //}
+
+    //public void OnScore(NetworkMessage netMsg)
+    //{
+    //    ScoreMessage msg = netMsg.ReadMessage<ScoreMessage>();
+    //    Debug.Log("OnScoreMessage " + msg.netId);
+    //    var player = ClientScene.FindLocalObject(msg.netId);
+    //    player.GetComponent<Ping>().GetPing(player.transform);
+    //}
+
+    //public void OnConnected(NetworkMessage netMsg)
+    //{
+    //    Debug.Log("Connected to server");
+    //}
+
+    //public override void OnStartClient()
+    //{
+    //    // this should be somewhere else..
+    //    NetworkManager.singleton.client.RegisterHandler(MyMsgId, OnMyMsg);
+    //}
+
+    //[Command]
+    //void CmdSendToMe()
+    //{
+    //    var msg = new MyMessage();
+    //    msg.netId = netId;
+
+    //    //base.connectionToClient.Send(MyMsgId, msg);
+    //    NetworkServer.SendToAll(MyMsgId, msg);
+    //}
+
+    //static void OnMyMsg(NetworkMessage netMsg)
+    //{
+    //    var msg = netMsg.ReadMessage<MyMessage>();
+    //    var player = ClientScene.FindLocalObject(msg.netId);
+    //    player.GetComponent<Ping>().GetPing(player.transform);
+    //}
 
     private void Start()
     {
+        if (!isLocalPlayer) return;
+
         DeployPing();
         StartCoroutine(ResetPingCooldown());
+        //SetupClient();
     }
 
     private void Update()
@@ -49,9 +126,22 @@ public class Ping : NetworkBehaviour
             }
         }
 
-        if(otherPlayer)
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Monster"))
         {
+            //send msg
+        }
+
+        if (otherPlayer)
+        {
+            //send msg 
             otherPlayer.GetComponent<Ping>().GetPing(transform);
+            //CmdSendToMe();
+            //var msg = new MyMessage();
+            //msg.netId = netId;
+
+            //base.connectionToClient.Send(MyMsgId, msg);
+            //NetworkServer.SendToAll(MyMsgId, msg);
+            //CmdSendScore(netId);
         }
 
         GetPong();
@@ -59,6 +149,12 @@ public class Ping : NetworkBehaviour
 
     public void GetPing(Transform t)
     {
+        if (t.gameObject == gameObject)
+        {
+            Debug.Log("Mesmo player");
+            //return;
+        }
+
         _startPos = transform.position;
         _endPos = t.position;
 
@@ -80,6 +176,7 @@ public class Ping : NetworkBehaviour
         lr.SetPosition(1, _endPos);
 
         Debug.DrawLine(transform.position, t.position);
+        Debug.Log("Transform: " + t.position);
 
         StartCoroutine(DeleteRay());
     }
@@ -134,5 +231,14 @@ public class Ping : NetworkBehaviour
         canPing = false;
         yield return new WaitForSeconds(PingCooldown);
         canPing = true;
+    }
+
+    IEnumerator PingSpawn()
+    {
+        while(PortalActive)
+        {
+            DeployPing();
+            yield return new WaitForSeconds(PingRate);
+        }
     }
 }
