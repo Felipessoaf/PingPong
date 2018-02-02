@@ -6,7 +6,10 @@ public class Player : Photon.MonoBehaviour {
 
 	public Camera mainCamera;
 	public static GameObject LocalPlayerInstance;
-	void Awake(){
+    public GameObject Visual;
+
+	void Awake()
+    {
 		if ( photonView.isMine)
 		{
 			Player.LocalPlayerInstance = this.gameObject;
@@ -16,30 +19,35 @@ public class Player : Photon.MonoBehaviour {
 			mainCameraFollow.target = this.gameObject.transform;
 			mainCameraFOV.localPlayerTag = this.gameObject.tag;
 		}
+        else if(PhotonNetwork.connected == true)
+        {
+            Visual.SetActive(false);
+            GetComponent<Collider>().enabled = false;
+            return;
+        }
 		DontDestroyOnLoad(this.gameObject);
 	}
+
 	void Start () 
 	{
-		//if (!isLocalPlayer)
-		{
-             //GetComponent<MeshRenderer>().enabled = false;
-             //GetComponent<Collider>().enabled = false;
-		}
+
 	}	
-	void Update () {
-		//if (!isLocalPlayer) return;
+
+	void Update ()
+    {
 		if (photonView.isMine == false && PhotonNetwork.connected == true)
 		{
 			return;
 		}
 	}
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 
     public void Join()
     {
         if (!photonView.isMine)
         {
-            GetComponent<MeshRenderer>().enabled = true;
+            Visual.SetActive(false);
             GetComponent<Collider>().enabled = true;
         }
     }
