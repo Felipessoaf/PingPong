@@ -28,11 +28,6 @@ public class Player : Photon.MonoBehaviour {
 		DontDestroyOnLoad(this.gameObject);
 	}
 
-	void Start () 
-	{
-
-	}	
-
 	void Update ()
     {
 		if (photonView.isMine == false && PhotonNetwork.connected == true)
@@ -40,6 +35,15 @@ public class Player : Photon.MonoBehaviour {
 			return;
 		}
 	}
+
+	/*
+	void OnCollisionEnter(Collision col)
+	{
+		if(col.collider.tag == "Monster")
+		{
+			GetComponent<Die>().PlayerDied();
+		}
+	}*/
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 	[PunRPC]
