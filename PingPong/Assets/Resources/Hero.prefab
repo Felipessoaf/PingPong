@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 114977175257804092}
   - component: {fileID: 65891680779537318}
   - component: {fileID: 114098589603543194}
+  - component: {fileID: 82205579799289464}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -1601,6 +1602,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38681793, y: 1.0824363, z: 0.10308111}
   m_Center: {x: 0, y: -0.04121816, z: 0.0062675476}
+--- !u!82 &82205579799289464
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436302516818272}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f6edd3a4d51b1f44db4829491cde3896, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95427076592526496
 Animator:
   serializedVersion: 3
@@ -2427,6 +2508,7 @@ MonoBehaviour:
   PingDuration: 0.5
   Anim1: {fileID: 95427950057219470}
   Anim2: {fileID: 95427076592526496}
+  PingSound: {fileID: 82205579799289464}
   PingWaitTime: 2
   canPing: 0
   Playable: 1

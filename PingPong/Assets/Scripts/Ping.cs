@@ -21,7 +21,7 @@ public class Ping : Photon.MonoBehaviour
     public float PingDuration = 0.5f;
     public Animator Anim1;
     public Animator Anim2;
-    //public AudioSource PingSound;
+    public AudioSource PingSound;
     //public GameObject H1Line;
 
 
@@ -84,6 +84,11 @@ public class Ping : Photon.MonoBehaviour
         if (Anim2)
         {
             Anim2.SetTrigger("ping");
+        }
+
+        if (PingSound)
+        {
+            PingSound.Play();
         }
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, UnionRadius);
