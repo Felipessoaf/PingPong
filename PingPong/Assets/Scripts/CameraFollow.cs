@@ -34,7 +34,7 @@ using cakeslice;
 			}	
 			else
 			{
-				Debug.Log("Effect out");
+				//Debug.Log("Effect out");
 				GetComponent<OutlineEffect>().lineIntensity = 0f;
 				GetComponent<OutlineEffect>().lineThickness = 0f;
 			}		
