@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 136246649227326716}
   m_Layer: 0
   m_Name: Portal
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de25fb11e108a1148b2fa54d4ed985e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activate: 0
+  active: 1
   playerWin: 0
   portalParticles: {fileID: 198569744964388446}
 --- !u!136 &136246649227326716
