@@ -37,4 +37,5 @@ MonoBehaviour:
   - RequestForPickupItems
   - RequestForPickupTimes
   - receiveping
+  - Join
   DisableAutoOpenWizard: 1

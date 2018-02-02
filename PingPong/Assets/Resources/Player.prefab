@@ -686,7 +686,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216961505612702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.3, y: 0, z: -46.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4181600436392002}
@@ -1367,10 +1367,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cba37e1ed874a41a0c170364bf01ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PongRadius: 0
+  PongRadius: 3
+  UnionRadius: 0
   PortalActive: 0
   PingCooldown: 0.1
   PingRate: 1
+  RayMat: {fileID: 2100000, guid: 1cccd38e592dedd4caec30b5476d60ad, type: 2}
+  PingDuration: 0.5
+  PingWaitTime: 2
+  canPing: 0
 --- !u!114 &114560100448211978
 MonoBehaviour:
   m_ObjectHideFlags: 1
