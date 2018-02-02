@@ -61,7 +61,7 @@ public class Lobby : Photon.PunBehaviour {
 	
 	void Update()
 	{
-		num.text = PhotonNetwork.room.PlayerCount.ToString()+"/4";
+		num.text = PhotonNetwork.room.PlayerCount.ToString()+" / 4";
 		
 		if(PhotonNetwork.room.PlayerCount==4){
 			//se todo mundo estiver ready
