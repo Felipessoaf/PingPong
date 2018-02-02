@@ -11,19 +11,13 @@ namespace Assets.Scripts
             if (!_audioManager)
             {
                 _audioManager = this;
-                DontDestroyOnLoad(this.gameObject);
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
-            //    Debug.Log("alo");
-                 Destroy(this.gameObject);
+                 Destroy(gameObject);
             }
         }
-
-        // public void DestroyOnLoad()
-        // {
-        //     Destroy(this.gameObject);
-        // }
 
         void OnEnable()
         {
@@ -33,14 +27,9 @@ namespace Assets.Scripts
         // called second
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if(scene.name == "win" || scene.name =="menu"){
-                GetComponent<AudioSource>().mute = true;
-            }
-            else{
-                GetComponent<AudioSource>().mute = false;
-
-                //if(menuwin)GetComponent<AudioSource>().Pause();
-                //else GetComponent<AudioSource>().Play();
+            if(scene.name == "networkMVP")
+            {
+                Destroy(gameObject);
             }
         }
 
