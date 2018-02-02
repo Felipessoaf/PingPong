@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Portal : MonoBehaviour 
 {
 		public bool activate = true;
+		public Text YouWinText;
 		public int playerWin;
 		public ParticleSystem portalParticles;
 
@@ -18,6 +20,13 @@ public class Portal : MonoBehaviour
 			{
 				playerWin++;
 				col.collider.gameObject.SetActive(false);
+			}
+		}
+		void Update()
+		{
+			if(playerWin == 1)
+			{
+				YouWinText.enabled = true;
 			}
 		}
 
